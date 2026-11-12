@@ -1,0 +1,1 @@
+Pour stocker toutes les ressources, assets et éléments graphique/sonore du jeu.

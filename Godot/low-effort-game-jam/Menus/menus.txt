@@ -1,0 +1,1 @@
+Pour tout les menus du jeu (principale, menu de pause, crédit, menu de chargement)
