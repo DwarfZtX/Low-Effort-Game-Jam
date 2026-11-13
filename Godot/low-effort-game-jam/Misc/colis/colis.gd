@@ -7,4 +7,5 @@ extends RigidBody3D
 
 
 func getTheColis():
-	return "test"
+	queue_free()
+	return "Test"

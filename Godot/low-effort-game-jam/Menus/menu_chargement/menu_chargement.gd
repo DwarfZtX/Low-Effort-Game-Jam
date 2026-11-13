@@ -27,4 +27,4 @@ func _process(_delta):
 		ResourceLoader.THREAD_LOAD_LOADED:
 			var scene = ResourceLoader.load_threaded_get(next_sceen_path)
 			get_tree().change_scene_to_packed(scene)
-			SignalBus.new_scene_loaded.emit()
+			

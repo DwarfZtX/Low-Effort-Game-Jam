@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://clg7ejgdb8oun"]
+
+[ext_resource type="Script" uid="uid://b0qg82jdg8xlu" path="res://Misc/deliveryManager/delivery_manager.gd" id="1_oskau"]
+
+[node name="DeliveryManager" type="Node3D" unique_id=79005251]
+script = ExtResource("1_oskau")
+
+[node name="Timer" type="Timer" parent="." unique_id=434582253]
+wait_time = 5.0
+one_shot = true
+autostart = true

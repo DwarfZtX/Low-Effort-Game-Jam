@@ -8,6 +8,8 @@ const SENSI_SCOPE_DIVIDER = 5
 
 @onready var head = $head
 @onready var rayInteract = $head/headAnchor/RayInteract
+@onready var handPackage = $head/headAnchor/HandPackage
+@onready var handWeapon = $head/headAnchor/HandWeapon
 
 
 var speed
@@ -43,7 +45,7 @@ func _unhandled_input(event):
 
 func _physics_process(delta: float) -> void:
 	
-	if rayInteract.is_colliding():
+	if rayInteract.is_colliding() and rayInteract.get_collider() != null:
 		match rayInteract.get_collider().interactState:
 			"GetColis":
 				SignalBus.interactLabelShow.emit("[E] get the Package")
@@ -54,6 +56,7 @@ func _physics_process(delta: float) -> void:
 				"GetColis":
 					if colis == null:
 						colis = rayInteract.get_collider().getTheColis()
+						change_colis()
 	else :
 		SignalBus.interactLabelShow.emit("")
 	
@@ -93,3 +96,21 @@ func _physics_process(delta: float) -> void:
 	head.head_bob(velocity.length(),delta)
 	head.cam_tilt(input_dir.x,delta)
 	
+
+
+
+
+
+func change_colis():
+	for mesh in handPackage.get_children():
+		mesh.hide()
+	if colis != null:
+		handPackage.find_child('Mesh'+colis).show()
+
+
+
+func post_colis():
+	if colis:
+		colis = null
+		change_colis()
+		SignalBus.delivery_completed.emit(global_position)

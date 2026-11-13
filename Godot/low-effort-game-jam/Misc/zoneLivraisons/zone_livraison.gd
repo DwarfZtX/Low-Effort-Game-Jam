@@ -1,6 +1,12 @@
 extends Node3D
 
 @export var zoneActif = false
+@export_enum("Centre","Banlieux","Indus","Plaine") var typeZone : String  
+
+
+func _ready() -> void:
+	Game.listeZone.append(self)
+	$MeshInstance3D.hide()
 
 
 func changeZoneActivation(active: bool):
@@ -13,5 +19,6 @@ func changeZoneActivation(active: bool):
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if zoneActif:
-		pass
+		body.post_colis()
+		changeZoneActivation(false)
 	

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://do0kmkevexs84"]
 
+[ext_resource type="PackedScene" uid="uid://cmwuus46u2ts4" path="res://Misc/zoneLivraisons/zone_livraison.tscn" id="1_87r81"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_x83us"]
 size = Vector3(20, 50, 20)
 
@@ -19,3 +21,6 @@ mesh = SubResource("BoxMesh_x83us")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1603991837]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
 shape = SubResource("ConcavePolygonShape3D_c1mw4")
+
+[node name="ZoneLivraison" parent="." unique_id=1679531146 instance=ExtResource("1_87r81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)

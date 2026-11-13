@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://dnsx33srqia4i" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://cl0k6m0h7ro7b" path="res://Player/head.gd" id="2_4ntmi"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_4ntmi"]
+size = Vector3(0.2, 0.5, 0.8)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hvfyp"]
@@ -23,6 +26,15 @@ script = ExtResource("2_4ntmi")
 [node name="RayInteract" type="RayCast3D" parent="head/headAnchor" unique_id=1340616648]
 target_position = Vector3(0, 0, -2)
 collision_mask = 512
+
+[node name="HandPackage" type="Node3D" parent="head/headAnchor" unique_id=703879548]
+
+[node name="MeshTest" type="MeshInstance3D" parent="head/headAnchor/HandPackage" unique_id=384454856]
+transform = Transform3D(1, 0, 0, 0, 0.6467898, -0.7626684, 0, 0.7626684, 0.6467898, -0.581, -0.53, -0.609)
+visible = false
+mesh = SubResource("BoxMesh_4ntmi")
+
+[node name="HandWeapon" type="Node3D" parent="head/headAnchor" unique_id=1177543807]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=894400215]
 shape = SubResource("CapsuleShape3D_hvfyp")
