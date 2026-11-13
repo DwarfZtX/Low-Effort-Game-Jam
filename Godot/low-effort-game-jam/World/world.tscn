@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -150)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 0, -150)
 
 [node name="batimentBlocking4" parent="Environment/batiments" unique_id=1417485202 instance=ExtResource("2_3f78f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, -77)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 0, -77)
 
 [node name="IU" parent="." unique_id=1924080377 instance=ExtResource("2_j8job")]
 

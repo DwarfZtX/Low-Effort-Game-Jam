@@ -1,10 +1,10 @@
 extends RigidBody3D
 
 
-@export_enum("Desactivated","GetColis") var interactState = "OpenGift"
+@export_enum("Desactivated","GetColis") var interactState = "GetColis"
 
 
 
 
 func getTheColis():
-	pass
+	return "test"

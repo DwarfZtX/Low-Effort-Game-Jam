@@ -19,6 +19,9 @@ var instance
 @export var life = 200
 @export var max_life = 200
 
+var colis 
+
+
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -41,13 +44,18 @@ func _unhandled_input(event):
 func _physics_process(delta: float) -> void:
 	
 	if rayInteract.is_colliding():
-		pass
+		match rayInteract.get_collider().interactState:
+			"GetColis":
+				SignalBus.interactLabelShow.emit("[E] get the Package")
+		
+		
 		if Input.is_action_just_pressed("interact"):
 			match rayInteract.get_collider().interactState:
-				"":
-					pass
+				"GetColis":
+					if colis == null:
+						colis = rayInteract.get_collider().getTheColis()
 	else :
-		pass
+		SignalBus.interactLabelShow.emit("")
 	
 	
 	
