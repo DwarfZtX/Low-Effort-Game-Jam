@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://clg7ejgdb8oun"]
 
 [ext_resource type="Script" uid="uid://b0qg82jdg8xlu" path="res://Misc/deliveryManager/delivery_manager.gd" id="1_oskau"]
+[ext_resource type="PackedScene" uid="uid://bpu52fid70ies" path="res://Misc/waypoint/waypoint.tscn" id="2_b020b"]
 
 [node name="DeliveryManager" type="Node3D" unique_id=79005251]
 script = ExtResource("1_oskau")
@@ -9,3 +10,5 @@ script = ExtResource("1_oskau")
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="waypoint" parent="." unique_id=295277658 instance=ExtResource("2_b020b")]

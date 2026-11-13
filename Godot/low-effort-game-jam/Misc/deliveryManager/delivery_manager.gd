@@ -24,6 +24,7 @@ func handle_completion(posPlayer):
 	zoneLivraison.changeZoneActivation(true)
 	#Game.listeZone.pick_random().changeZoneActivation(true)
 	
+	$waypoint.global_position = zoneLivraison.global_position + Vector3(0,2,0)
 	
 	instance = colis.instantiate()
 	add_child(instance)
