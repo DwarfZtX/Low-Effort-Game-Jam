@@ -36,6 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5665429, 0)
 [node name="Environment" type="Node3D" parent="." unique_id=1842560706]
 
 [node name="ground" type="CSGBox3D" parent="Environment" unique_id=2031439698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(500, 1, 500)
 
@@ -56,17 +57,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 0, -77)
 [node name="voitures" type="Node3D" parent="Environment" unique_id=815135335]
 
 [node name="voiture" parent="Environment/voitures" unique_id=1048386848 instance=ExtResource("4_yf0ba")]
-transform = Transform3D(0.8943841, 0, 0.44729975, 0, 1, 0, -0.44729975, 0, 0.8943841, -31.21314, 1.5051064, -20.131224)
+transform = Transform3D(0.8943841, 0, 0.44729975, 0, 1, 0, -0.44729975, 0, 0.8943841, -31.21314, 0.9392772, -20.131224)
 
 [node name="voiture2" parent="Environment/voitures" unique_id=98716687 instance=ExtResource("4_yf0ba")]
-transform = Transform3D(0.69114923, 0, -0.7227122, 0, 1, 0, 0.7227122, 0, 0.69114923, -31.21314, 1.5051064, -10.646812)
+transform = Transform3D(0.69114923, 0, -0.7227122, 0, 1, 0, 0.7227122, 0, 0.69114923, -31.21314, 0.9392772, -10.646812)
 
 [node name="voiture3" parent="Environment/voitures" unique_id=969027448 instance=ExtResource("4_yf0ba")]
-transform = Transform3D(0.72773004, 0, 0.68586385, 0, 1, 0, -0.68586385, 0, 0.72773004, -31.21314, 1.5051064, 0.4074726)
+transform = Transform3D(0.72773004, 0, 0.68586385, 0, 1, 0, -0.68586385, 0, 0.72773004, -31.21314, 0.9392772, 0.4074726)
+
+[node name="DeliveryManager" parent="." unique_id=79005251 instance=ExtResource("7_yf0ba")]
 
 [node name="IU" parent="." unique_id=1924080377 instance=ExtResource("2_j8job")]
 
 [node name="menu_pause" parent="." unique_id=502197408 instance=ExtResource("3_j8job")]
 visible = false
-
-[node name="DeliveryManager" parent="." unique_id=79005251 instance=ExtResource("7_yf0ba")]

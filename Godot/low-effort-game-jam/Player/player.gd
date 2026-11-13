@@ -54,6 +54,10 @@ func _physics_process(delta: float) -> void:
 		match rayInteract.get_collider().interactState:
 			"GetColis":
 				SignalBus.interactLabelShow.emit("[E] get the Package")
+			"Desactivated":
+				pass
+			"GetFood":
+				SignalBus.interactLabelShow.emit("[E] Get Food (32 C$)")
 		
 		
 		if Input.is_action_just_pressed("interact"):
@@ -62,6 +66,10 @@ func _physics_process(delta: float) -> void:
 					if colis == null:
 						colis = rayInteract.get_collider().getTheColis()
 						change_colis()
+				"GetFood":
+					Game.CrouskiDollars-=32
+					life+=50
+					SignalBus.changeInLife.emit(life,max_life)
 	else :
 		SignalBus.interactLabelShow.emit("")
 	
