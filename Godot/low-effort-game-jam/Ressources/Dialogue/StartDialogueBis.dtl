@@ -1,0 +1,19 @@
+Skyknot: HA H4 HA H4
+Skyknot: Y0U DUMB HUM4N\
+\
+YOU F3LL INT0 MY TR4P
+Skyknot: N0W\
+YOU W1LL WORK F0R ME L1TTL3 HUMAN
+set {PlayerName} = "???"
+Player: Uhh...\
+No ?
+Skyknot: YOU D1D N0T UND3RSTAND!
+Skyknot: WH4T'S YOUR N4ME ?
+[text_input text="Please enter your name:" var="PlayerName" placeholder="John Doe"]
+Player: My name's {PlayerName}!
+Skyknot: N0.
+set {PlayerName} = "SL4VE_6C137E"
+Player: What ?
+Skyknot: Y0U HAV3 TEN M1NUT3S TO TRY TO STILL BE AL1VE FOR TOMORROW.\
+HERE IS YOUR ORD3R.\
+TIC T4C ... T1C TAC ... T1C T4C ...

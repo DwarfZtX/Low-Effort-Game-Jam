@@ -1,19 +1,34 @@
-Skyknot: HA H4 HA H4
-Skyknot: Y0U DUMB HUM4N\
-\
-YOU F3LL INT0 MY TR4P
-Skyknot: N0W\
-YOU W1LL WORK F0R ME L1TTL3 HUMAN
-set {PlayerName} = "???"
-Player: Uhh...\
-No ?
-Skyknot: YOU D1D N0T UND3RSTAND!
-Skyknot: WH4T'S YOUR N4ME ?
+Skyknot: Hi.\
+I'm the narrator, and i will tell you the GRANDIOSE story of ...\
+What's your name mortal ?
 [text_input text="Please enter your name:" var="PlayerName" placeholder="John Doe"]
-Player: My name's {PlayerName}!
-Skyknot: N0.
-set {PlayerName} = "SL4VE_6C137E"
-Player: What ?
-Skyknot: Y0U HAV3 TEN M1NUT3S TO TRY TO STILL BE AL1VE FOR TOMORROW.\
-HERE IS YOUR ORD3R.\
-TIC T4C ... T1C TAC ... T1C T4C ...
+if {PlayerName} == "SLAVE_6C1":
+	Skyknot: ...
+	Skyknot: HOW?
+	Skyknot: WAIT A FEW SECONDS ...
+	[wait time="2.0"]
+	Skyknot: I may have fired some people.\
+	...\
+	It's SLAVE_65D now.
+	set {PlayerName} = "SLAVE_65D"
+else:
+	Skyknot: No, not {PlayerName}, it's not nice.\
+	Would you let me pick ?
+	- Sure, why not?
+		Skyknot: Thank you mortal.\
+		...\
+		SLAVE_6C1
+	- Respect my name!
+		Skyknot: No. You don't matter enough.\
+		...\
+		SLAVE_6C1
+	set {PlayerName} = "SLAVE_6C1"
+Skyknot: So back to the little story.\
+...\
+Once upon a time, there was a mortal named {PlayerName}.
+Skyknot: {PlayerName} was a normal mortal, human, dumb and stinky.\
+But they had a good idea for once \: please the greater good
+Skyknot: And so they did, by making deliveries in a city where teleporting devices are as common as human are weak
+Skyknot: And to keep it exciting, you will be cut off a member for each delivery not made on time.
+Skyknot: May the odds be ever in your favor, and be sure to fail a delivery or two to be fun to watch.
+[end_timeline]
