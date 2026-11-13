@@ -11,8 +11,10 @@ func _ready() -> void:
 
 func _on_b_play_pressed() -> void:
 	Game.reset_game_var()
+	
 	Global.scene_to_load = "res://World/world.tscn"
 	get_tree().change_scene_to_file("res://Menus/menu_chargement/menu_chargement.tscn")
+	
 	Dialogic.start("StartDialogue")
 
 

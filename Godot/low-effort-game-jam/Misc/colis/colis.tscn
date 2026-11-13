@@ -1,5 +1,17 @@
 [gd_scene format=3 uid="uid://cm3yp16hp74vx"]
 
-[node name="colis" type="RigidBody3D" unique_id=1283739231]
+[sub_resource type="BoxMesh" id="BoxMesh_x83us"]
+size = Vector3(0.3, 0.5, 0.8)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=6917194]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtgx0"]
+size = Vector3(0.3, 0.5, 0.8)
+
+[node name="colis" type="RigidBody3D" unique_id=1283739231]
+collision_layer = 513
+collision_mask = 513
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=364603749]
+mesh = SubResource("BoxMesh_x83us")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=296587458]
+shape = SubResource("BoxShape3D_vtgx0")
