@@ -15,7 +15,7 @@ func _on_b_play_pressed() -> void:
 	Global.scene_to_load = "res://World/world.tscn"
 	get_tree().change_scene_to_file("res://Menus/menu_chargement/menu_chargement.tscn")
 	
-	Dialogic.start("StartDialogue")
+	Dialogic.start("StartDialogueBis")
 
 
 func _on_b_credit_pressed() -> void:

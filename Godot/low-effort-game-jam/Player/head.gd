@@ -17,7 +17,7 @@ var headAnchorRotationTilt = Vector3.ZERO
 var headAnchorPositionBob = Vector3.ZERO
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	headAnchor.position = headAnchorPositionBob
 	headAnchor.rotation = headAnchorRotationTilt 
 

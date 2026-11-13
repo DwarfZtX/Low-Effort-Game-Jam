@@ -14,7 +14,7 @@
 &"description": "",
 &"display_name": "Skyknot",
 &"mirror": false,
-&"nicknames": ["Boss"],
+&"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "Default": {
@@ -25,7 +25,7 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": ""
+"scene": "res://addons/dialogic/Modules/Character/default_portrait.tscn"
 }
 },
 &"scale": 1.0

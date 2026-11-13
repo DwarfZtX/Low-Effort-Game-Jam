@@ -16,6 +16,7 @@ func _ready():
 		"Stop being handsome, you'll make the game crash ;)",
 		"Dementia ? Dementia ?",
 		"Touch grass",
+		"Apparently Cats Are Bots",
 	].pick_random()
 
 func _process(_delta):
