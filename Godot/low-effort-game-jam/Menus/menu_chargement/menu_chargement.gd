@@ -4,7 +4,6 @@ extends Control
 @export var next_sceen_path: String = ""
 @export var progress: Array[float] = []
 
-
 func _ready():
 	next_sceen_path = Global.scene_to_load
 	ResourceLoader.load_threaded_request(next_sceen_path)
@@ -19,10 +18,8 @@ func _ready():
 		"Touch grass",
 	].pick_random()
 
-
-func _process(delta):
+func _process(_delta):
 	var status = ResourceLoader.load_threaded_get_status(next_sceen_path, progress)
-	
 	match status:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			var pct = progress[0] * 100
@@ -30,3 +27,4 @@ func _process(delta):
 		ResourceLoader.THREAD_LOAD_LOADED:
 			var scene = ResourceLoader.load_threaded_get(next_sceen_path)
 			get_tree().change_scene_to_packed(scene)
+			SignalBus.new_scene_loaded.emit()
