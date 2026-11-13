@@ -25,13 +25,17 @@ SignalBus="*uid://s7neanx8wyrp"
 [dialogic]
 
 directories/dch_directory={
+"Player": "res://Ressources/Dialogue/Player.dch",
 "Skyknot": "res://Ressources/Dialogue/Skyknot.dch"
 }
 directories/dtl_directory={
 "StartDialogue": "res://Ressources/Dialogue/StartDialogue.dtl"
 }
-layout/style_directory={}
-text/letter_speed=0.01
+layout/style_directory={
+"": "res://Ressources/Dialogue/Style.tres",
+"Style": "res://Ressources/Dialogue/Style.tres"
+}
+text/letter_speed=0.1
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/advance_delay=0.1
@@ -65,9 +69,14 @@ audio/channel_defaults={
 }
 layout/style_list=["res://Ressources/Dialogue/Style.tres"]
 layout/default_style="res://Ressources/Dialogue/Style.tres"
-variables={}
+variables={
+"PlayerName": ""
+}
 glossary/default_case_sensitive=true
 glossary/glossary_files=[]
+text/input_action="dialogic_default_action"
+text/autocolor_names=false
+text/autoskip_time_per_event=1.0
 
 [display]
 
