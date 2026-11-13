@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://d1ue50yc44lyw"]
 
+[ext_resource type="Script" uid="uid://dnsx33srqia4i" path="res://Player/player.gd" id="1_l8h54"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hvfyp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hvfyp"]
 
 [node name="Player" type="CharacterBody3D" unique_id=225424705]
+script = ExtResource("1_l8h54")
 
 [node name="Head" type="Node3D" parent="." unique_id=883889354]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
