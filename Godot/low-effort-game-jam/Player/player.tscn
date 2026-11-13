@@ -20,6 +20,10 @@ script = ExtResource("2_4ntmi")
 
 [node name="Camera3D" type="Camera3D" parent="head/headAnchor" unique_id=1952656911]
 
+[node name="RayInteract" type="RayCast3D" parent="head/headAnchor" unique_id=1340616648]
+target_position = Vector3(0, 0, -2)
+collision_mask = 512
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=894400215]
 shape = SubResource("CapsuleShape3D_hvfyp")
 

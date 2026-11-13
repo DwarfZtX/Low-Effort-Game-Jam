@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 4.0
 const SPRINT = 9.0
 const JUMP_VELOCITY = 6.5
@@ -8,6 +7,8 @@ const SENSI = 0.002
 const SENSI_SCOPE_DIVIDER = 5
 
 @onready var head = $head
+@onready var rayInteract = $head/headAnchor/RayInteract
+
 
 var speed
 var gravity = 10
@@ -38,6 +39,19 @@ func _unhandled_input(event):
 
 
 func _physics_process(delta: float) -> void:
+	
+	if rayInteract.is_colliding():
+		pass
+		if Input.is_action_just_pressed("interact"):
+			match rayInteract.get_collider().interactState:
+				"":
+					pass
+	else :
+		pass
+	
+	
+	
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cm3yp16hp74vx"]
 
+[ext_resource type="Script" uid="uid://dieec5v5ciaqj" path="res://Misc/colis/colis.gd" id="1_hw7cd"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_x83us"]
 size = Vector3(0.3, 0.5, 0.8)
 
@@ -9,6 +11,7 @@ size = Vector3(0.3, 0.5, 0.8)
 [node name="colis" type="RigidBody3D" unique_id=1283739231]
 collision_layer = 513
 collision_mask = 513
+script = ExtResource("1_hw7cd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=364603749]
 mesh = SubResource("BoxMesh_x83us")
