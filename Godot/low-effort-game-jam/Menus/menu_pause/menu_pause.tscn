@@ -1,9 +1,64 @@
 [gd_scene format=3 uid="uid://3dno4ib2sbb4"]
 
+[ext_resource type="Script" uid="uid://trmjwk5n12h1" path="res://Menus/menu_pause/menu_pause.gd" id="1_sbr65"]
+
 [node name="menu_pause" type="Control" unique_id=502197408]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_sbr65")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=122692521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.36862746)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1166266021]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1785596846]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1272752638]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="B_resume" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1494193738]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Resume"
+
+[node name="B_menu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1167737220]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "To Menu"
+
+[node name="B_desktop" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1056895371]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "To Desktop"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/B_resume" to="." method="_on_b_resume_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/B_menu" to="." method="_on_b_menu_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/B_desktop" to="." method="_on_b_desktop_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://do0kmkevexs84"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x83us"]
+size = Vector3(20, 50, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_c1mw4"]
+data = PackedVector3Array(-10, 25, 10, 10, 25, 10, -10, -25, 10, 10, 25, 10, 10, -25, 10, -10, -25, 10, 10, 25, -10, -10, 25, -10, 10, -25, -10, -10, 25, -10, -10, -25, -10, 10, -25, -10, 10, 25, 10, 10, 25, -10, 10, -25, 10, 10, 25, -10, 10, -25, -10, 10, -25, 10, -10, 25, -10, -10, 25, 10, -10, -25, -10, -10, 25, 10, -10, -25, 10, -10, -25, -10, 10, 25, 10, -10, 25, 10, 10, 25, -10, -10, 25, 10, -10, 25, -10, 10, 25, -10, -10, -25, 10, 10, -25, 10, -10, -25, -10, 10, -25, 10, 10, -25, -10, -10, -25, -10)
+
+[node name="batimentBlocking" type="Node3D" unique_id=1843426548]
+
+[node name="Meshs" type="Node3D" parent="." unique_id=578560903]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Meshs" unique_id=1119328747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+mesh = SubResource("BoxMesh_x83us")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1533504269]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1603991837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+shape = SubResource("ConcavePolygonShape3D_c1mw4")

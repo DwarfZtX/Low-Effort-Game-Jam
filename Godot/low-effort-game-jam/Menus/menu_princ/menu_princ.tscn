@@ -40,17 +40,17 @@ theme_override_constants/separation = 10
 
 [node name="B_Play" type="Button" parent="BPrinc/PanelContainer/MarginContainer/VBoxContainer" unique_id=659637381]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Play"
 
 [node name="B_Credit" type="Button" parent="BPrinc/PanelContainer/MarginContainer/VBoxContainer" unique_id=970504520]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Credit"
 
 [node name="B_Quit" type="Button" parent="BPrinc/PanelContainer/MarginContainer/VBoxContainer" unique_id=1054298462]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Quit"
 
 [connection signal="pressed" from="BPrinc/PanelContainer/MarginContainer/VBoxContainer/B_Play" to="." method="_on_b_play_pressed"]
