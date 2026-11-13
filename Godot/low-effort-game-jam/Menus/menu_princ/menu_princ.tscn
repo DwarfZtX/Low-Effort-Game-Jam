@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://cct7nlej8hgj0"]
 
+[ext_resource type="Script" uid="uid://cmoqdjfasure2" path="res://Menus/menu_princ/menu_princ.gd" id="1_a1yha"]
+
 [node name="menu_princ" type="Control" unique_id=1130862466]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +9,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a1yha")
+
+[node name="BPrinc" type="Control" parent="." unique_id=1849731703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="BPrinc" unique_id=1346815543]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = 76.0
+offset_right = 344.0
+offset_bottom = 177.0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BPrinc/PanelContainer" unique_id=500685274]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BPrinc/PanelContainer/MarginContainer" unique_id=2025591761]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="B_Play" type="Button" parent="BPrinc/PanelContainer/MarginContainer/VBoxContainer" unique_id=659637381]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="B_Credit" type="Button" parent="BPrinc/PanelContainer/MarginContainer/VBoxContainer" unique_id=970504520]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credit"
+
+[node name="B_Quit" type="Button" parent="BPrinc/PanelContainer/MarginContainer/VBoxContainer" unique_id=1054298462]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[connection signal="pressed" from="BPrinc/PanelContainer/MarginContainer/VBoxContainer/B_Play" to="." method="_on_b_play_pressed"]
+[connection signal="pressed" from="BPrinc/PanelContainer/MarginContainer/VBoxContainer/B_Credit" to="." method="_on_b_credit_pressed"]
+[connection signal="pressed" from="BPrinc/PanelContainer/MarginContainer/VBoxContainer/B_Quit" to="." method="_on_b_quit_pressed"]
