@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://do0kmkevexs84" path="res://World/Batiments/Blocking/batiment_blocking.tscn" id="2_3f78f"]
 [ext_resource type="PackedScene" uid="uid://dc41x4xxid023" path="res://Player/iu.tscn" id="2_j8job"]
 [ext_resource type="PackedScene" uid="uid://3dno4ib2sbb4" path="res://Menus/menu_pause/menu_pause.tscn" id="3_j8job"]
+[ext_resource type="PackedScene" uid="uid://dxngagm8c3lm7" path="res://Misc/voitures/voiture.tscn" id="4_yf0ba"]
 [ext_resource type="PackedScene" uid="uid://clg7ejgdb8oun" path="res://Misc/deliveryManager/delivery_manager.tscn" id="7_yf0ba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u1ndb"]
@@ -51,6 +52,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 0, -150)
 
 [node name="batimentBlocking4" parent="Environment/batiments" unique_id=1417485202 instance=ExtResource("2_3f78f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 0, -77)
+
+[node name="voitures" type="Node3D" parent="Environment" unique_id=815135335]
+
+[node name="voiture" parent="Environment/voitures" unique_id=1048386848 instance=ExtResource("4_yf0ba")]
+transform = Transform3D(0.8943841, 0, 0.44729975, 0, 1, 0, -0.44729975, 0, 0.8943841, -31.21314, 1.5051064, -20.131224)
+
+[node name="voiture2" parent="Environment/voitures" unique_id=98716687 instance=ExtResource("4_yf0ba")]
+transform = Transform3D(0.69114923, 0, -0.7227122, 0, 1, 0, 0.7227122, 0, 0.69114923, -31.21314, 1.5051064, -10.646812)
+
+[node name="voiture3" parent="Environment/voitures" unique_id=969027448 instance=ExtResource("4_yf0ba")]
+transform = Transform3D(0.72773004, 0, 0.68586385, 0, 1, 0, -0.68586385, 0, 0.72773004, -31.21314, 1.5051064, 0.4074726)
 
 [node name="IU" parent="." unique_id=1924080377 instance=ExtResource("2_j8job")]
 

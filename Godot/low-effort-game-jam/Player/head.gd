@@ -40,3 +40,13 @@ func head_bob(vel:float,delta):
 		else :
 			headAnchorPositionBob.y = lerp(headAnchorPositionBob.y, headAnchorDefaultPos.y,10*delta)
 			headAnchorPositionBob.x = lerp(headAnchorPositionBob.x, headAnchorDefaultPos.x,10*delta)
+
+
+
+func camera_shake():
+	var shake_power = 0.2
+	var tw = get_tree().create_tween()
+	tw.tween_property(camera_node,"position",Vector3(randf()*shake_power,randf()*shake_power,randf()*shake_power),0.05)
+	tw.tween_property(camera_node,"position",Vector3(randf()*shake_power,randf()*shake_power,randf()*shake_power),0.05)
+	tw.tween_property(camera_node,"position",Vector3(randf()*shake_power,randf()*shake_power,randf()*shake_power),0.05)
+	tw.tween_property(camera_node,"position",Vector3.ZERO,0.1)

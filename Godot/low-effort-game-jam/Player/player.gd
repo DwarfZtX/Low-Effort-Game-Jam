@@ -118,7 +118,12 @@ func _physics_process(delta: float) -> void:
 	$head/headAnchor/Camera3D.fov = lerp($head/headAnchor/Camera3D.fov,75+(velocity.length()/2),0.1)
 
 
-
+func hit(damage:int):
+	life-=damage
+	SignalBus.changeInLife.emit(life,max_life)
+	head.camera_shake()
+	if life <= 0:
+		SignalBus.game_death.emit()
 
 
 func change_colis():

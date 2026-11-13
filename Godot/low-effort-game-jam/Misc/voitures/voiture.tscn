@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dxngagm8c3lm7"]
+
+[ext_resource type="Script" uid="uid://cipovna63xbik" path="res://Misc/voitures/voiture.gd" id="1_3q80a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_btcbx"]
+size = Vector3(2, 2, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ntmi"]
+size = Vector3(2, 2, 4)
+
+[sub_resource type="Curve" id="Curve_f8yjs"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.040540546, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4kvqq"]
+curve = SubResource("Curve_f8yjs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k53q1"]
+emission_shape = 1
+emission_sphere_radius = 1.5
+gravity = Vector3(0, 1, 0)
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 0.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_4kvqq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtle1"]
+albedo_color = Color(1, 0.7294118, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.7372549, 0, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_fhl08"]
+material = SubResource("StandardMaterial3D_vtle1")
+radius = 1.0
+height = 2.0
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Gradient" id="Gradient_gun4y"]
+offsets = PackedFloat32Array(0, 0.13934426)
+colors = PackedColorArray(1, 0.6627451, 0, 1, 0.021434637, 0.021434635, 0.021434633, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2wkio"]
+gradient = SubResource("Gradient_gun4y")
+
+[sub_resource type="Curve" id="Curve_r0010"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.1418919, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sufuk"]
+curve = SubResource("Curve_r0010")
+
+[sub_resource type="Curve" id="Curve_tyvwb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.040540546, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_urknv"]
+curve = SubResource("Curve_tyvwb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3lxpf"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 1, 0)
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 0.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_urknv")
+color_ramp = SubResource("GradientTexture1D_2wkio")
+emission_curve = SubResource("CurveTexture_sufuk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1ois"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_4lwdw"]
+material = SubResource("StandardMaterial3D_e1ois")
+radius = 1.5
+height = 3.0
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_54y4j"]
+radius = 4.0
+
+[node name="voiture" type="StaticBody3D" unique_id=1048386848]
+collision_layer = 257
+collision_mask = 257
+script = ExtResource("1_3q80a")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1899820849]
+shape = SubResource("BoxShape3D_btcbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1709904879]
+mesh = SubResource("BoxMesh_4ntmi")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1881817567]
+emitting = false
+amount = 4
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_k53q1")
+draw_pass_1 = SubResource("SphereMesh_fhl08")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=1476262513]
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_3lxpf")
+draw_pass_1 = SubResource("SphereMesh_4lwdw")
+
+[node name="AreaDamage" type="Area3D" parent="." unique_id=1984470828]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDamage" unique_id=1907293950]
+shape = SubResource("SphereShape3D_54y4j")
