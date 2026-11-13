@@ -9,10 +9,14 @@ var zoneLivraison = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	SignalBus.delivery_completed.connect(create_new_delivery)
+	SignalBus.delivery_completed.connect(handle_completion)
 
 
-func create_new_delivery(posPlayer):
+func handle_completion(posPlayer):
+	
+	
+	#création d'une nouvelle livraison
+	
 	var newZoneLivraison
 	while newZoneLivraison == null or zoneLivraison == newZoneLivraison:
 		newZoneLivraison = Game.listeZone.pick_random()

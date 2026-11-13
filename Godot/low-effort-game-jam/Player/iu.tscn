@@ -28,3 +28,9 @@ grow_vertical = 2
 text = "test test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="dollarsLabel" type="Label" parent="." unique_id=680404665]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0 Crouskidollars "

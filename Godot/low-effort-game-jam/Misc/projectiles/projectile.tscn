@@ -1,3 +1,61 @@
 [gd_scene format=3 uid="uid://cu88ibpn0dp67"]
 
+[ext_resource type="Script" uid="uid://6lr6c5f3uvwh" path="res://Misc/projectiles/projectile.gd" id="1_h4w7h"]
+[ext_resource type="Material" uid="uid://xeyry0bhjke3" path="res://Ressources/texture/gdtexture/lightYellowText.tres" id="2_sjxu2"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_h4w7h"]
+material = ExtResource("2_sjxu2")
+top_radius = 0.05
+bottom_radius = 0.0
+height = 0.5
+radial_segments = 16
+rings = 1
+
+[sub_resource type="Curve" id="Curve_sjxu2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_av2py"]
+curve = SubResource("Curve_sjxu2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jf1sm"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, 1)
+spread = 90.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+scale_min = 0.79999995
+scale_max = 1.1999999
+scale_curve = SubResource("CurveTexture_av2py")
+
+[sub_resource type="BoxMesh" id="BoxMesh_13tlu"]
+material = ExtResource("2_sjxu2")
+size = Vector3(0.05, 0.05, 0.05)
+
 [node name="projectile" type="Node3D" unique_id=908759709]
+script = ExtResource("1_h4w7h")
+speed = 70
+particle = true
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1894924722]
+target_position = Vector3(0, 0, -1)
+
+[node name="RayCast3D2" type="RayCast3D" parent="." unique_id=1807835894]
+target_position = Vector3(0, 0, -1)
+collision_mask = 256
+
+[node name="mesh" type="Node3D" parent="." unique_id=1292540883]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="mesh" unique_id=1587378558]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_h4w7h")
+
+[node name="Timer" type="Timer" parent="." unique_id=964783489]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1500615465]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jf1sm")
+draw_pass_1 = SubResource("BoxMesh_13tlu")

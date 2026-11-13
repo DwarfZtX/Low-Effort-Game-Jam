@@ -16,6 +16,9 @@ extends Node
 	
 ]
 
+## inutilisé
+@export_enum("package","delivery","waiting","free") var stateGame : String
+
 
 
 func reset_game_var():

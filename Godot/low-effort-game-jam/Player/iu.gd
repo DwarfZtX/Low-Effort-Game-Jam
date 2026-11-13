@@ -5,6 +5,9 @@ extends Control
 func _ready() -> void:
 	SignalBus.interactLabelShow.connect(InteractLabelshow)
 
+func _process(delta: float) -> void:
+	$dollarsLabel.text = str(Game.CrouskiDollars)+" Crouskidollars"
+
 
 
 func InteractLabelshow(newText):

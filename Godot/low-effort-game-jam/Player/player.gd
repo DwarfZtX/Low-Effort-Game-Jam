@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 const SPEED = 4.0
-const SPRINT = 9.0
+const SPRINT = 15.0
 const JUMP_VELOCITY = 6.5
 const SENSI = 0.002
 const SENSI_SCOPE_DIVIDER = 5
@@ -16,6 +16,9 @@ var speed
 var gravity = 10
 var mouse_input = Vector2.ZERO
 var instance
+
+
+var bullet = preload("res://Misc/projectiles/projectile.tscn")
 
 # variable de gestion de la vie
 @export var life = 200
@@ -45,6 +48,8 @@ func _unhandled_input(event):
 
 func _physics_process(delta: float) -> void:
 	
+	## interact
+	
 	if rayInteract.is_colliding() and rayInteract.get_collider() != null:
 		match rayInteract.get_collider().interactState:
 			"GetColis":
@@ -61,7 +66,21 @@ func _physics_process(delta: float) -> void:
 		SignalBus.interactLabelShow.emit("")
 	
 	
+	## shoot
 	
+	if Input.is_action_just_pressed("click gauche"):
+		instance = bullet.instantiate()
+		instance.position = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_position
+		instance.transform.basis = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_transform.basis
+		
+		instance.transform.basis *= Basis(Vector3(1,0,0), deg_to_rad(randf_range(-5,5))) * Basis(Vector3(0,1,0), deg_to_rad(randf_range(-5,5)))
+		
+		instance.degat = 50
+		get_parent().add_child(instance)
+	
+	
+	
+	## deplacement
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -96,6 +115,7 @@ func _physics_process(delta: float) -> void:
 	head.head_bob(velocity.length(),delta)
 	head.cam_tilt(input_dir.x,delta)
 	
+	$head/headAnchor/Camera3D.fov = lerp($head/headAnchor/Camera3D.fov,75+(velocity.length()/2),0.1)
 
 
 
