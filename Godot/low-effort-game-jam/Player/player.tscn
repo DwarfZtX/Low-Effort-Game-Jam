@@ -8,6 +8,8 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hvfyp"]
 
 [node name="Player" type="CharacterBody3D" unique_id=225424705]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_l8h54")
 
 [node name="head" type="Node3D" parent="." unique_id=883889354]

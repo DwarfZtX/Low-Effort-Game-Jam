@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dhjnet7q1en3m"]
 
 [ext_resource type="PackedScene" uid="uid://d1ue50yc44lyw" path="res://Player/player.tscn" id="1_8a836"]
+[ext_resource type="PackedScene" uid="uid://do0kmkevexs84" path="res://World/Batiments/Blocking/batiment_blocking.tscn" id="2_3f78f"]
 [ext_resource type="PackedScene" uid="uid://dc41x4xxid023" path="res://Player/iu.tscn" id="2_j8job"]
+[ext_resource type="PackedScene" uid="uid://3dno4ib2sbb4" path="res://Menus/menu_pause/menu_pause.tscn" id="3_j8job"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u1ndb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,10 +29,27 @@ shadow_enabled = true
 [node name="Player" parent="." unique_id=225424705 instance=ExtResource("1_8a836")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5665429, 0)
 
-[node name="IU" parent="." unique_id=1924080377 instance=ExtResource("2_j8job")]
-
 [node name="Environment" type="Node3D" parent="." unique_id=1842560706]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Environment" unique_id=2031439698]
+[node name="ground" type="CSGBox3D" parent="Environment" unique_id=2031439698]
 use_collision = true
-size = Vector3(50, 1, 50)
+size = Vector3(500, 1, 500)
+
+[node name="batiments" type="Node3D" parent="Environment" unique_id=1234651917]
+
+[node name="batimentBlocking" parent="Environment/batiments" unique_id=1843426548 instance=ExtResource("2_3f78f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -200)
+
+[node name="batimentBlocking2" parent="Environment/batiments" unique_id=137248992 instance=ExtResource("2_3f78f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -150)
+
+[node name="batimentBlocking3" parent="Environment/batiments" unique_id=1439903973 instance=ExtResource("2_3f78f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 0, -150)
+
+[node name="batimentBlocking4" parent="Environment/batiments" unique_id=1417485202 instance=ExtResource("2_3f78f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 0, -77)
+
+[node name="IU" parent="." unique_id=1924080377 instance=ExtResource("2_j8job")]
+
+[node name="menu_pause" parent="." unique_id=502197408 instance=ExtResource("3_j8job")]
+visible = false
