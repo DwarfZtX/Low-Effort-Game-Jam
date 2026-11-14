@@ -29,7 +29,7 @@ var bullet = preload("res://Misc/projectiles/projectile.tscn")
 
 @export var exhaustion = 0
 
-var colis 
+@export var colis 
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
