@@ -5,18 +5,18 @@ const SPRINT = 15.0
 const JUMP_VELOCITY = 6.5
 const SENSI = 0.002
 const SENSI_SCOPE_DIVIDER = 5
+const SENSI_CONTROLLER_FACTOR = 23
+const JOYSTICK_DEADZONE = 0.2
 
 @onready var head = $head
 @onready var rayInteract = $head/headAnchor/RayInteract
 @onready var handPackage = $head/headAnchor/HandPackage
 @onready var handWeapon = $head/headAnchor/HandWeapon
 
-
 var speed
 var gravity = 10
 var mouse_input = Vector2.ZERO
 var instance
-
 
 var bullet = preload("res://Misc/projectiles/projectile.tscn")
 
@@ -26,11 +26,8 @@ var bullet = preload("res://Misc/projectiles/projectile.tscn")
 
 var colis 
 
-
-
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
 
 func _unhandled_input(event):
 	#rotation joueur et camera
@@ -42,9 +39,6 @@ func _unhandled_input(event):
 		head.rotate_x(-event.relative.y * sensi)
 		head.rotation.x = clamp(head.rotation.x ,-PI/2 ,PI/2)
 		mouse_input = event.relative
-
-
-
 
 func _physics_process(delta: float) -> void:
 	
@@ -75,7 +69,6 @@ func _physics_process(delta: float) -> void:
 	
 	
 	## shoot
-	
 	if Input.is_action_just_pressed("click gauche"):
 		instance = bullet.instantiate()
 		instance.position = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_position
@@ -85,8 +78,6 @@ func _physics_process(delta: float) -> void:
 		
 		instance.degat = 50
 		get_parent().add_child(instance)
-	
-	
 	
 	## deplacement
 	
@@ -124,7 +115,15 @@ func _physics_process(delta: float) -> void:
 	head.cam_tilt(input_dir.x,delta)
 	
 	$head/headAnchor/Camera3D.fov = lerp($head/headAnchor/Camera3D.fov,75+(velocity.length()/2),0.1)
-
+	
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventJoypadMotion:
+	var controller_cam_rot : Vector2 = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
+	if controller_cam_rot.length() > JOYSTICK_DEADZONE:
+		var sensi = SENSI*SENSI_CONTROLLER_FACTOR
+		rotate_y(-controller_cam_rot.x * sensi)
+		head.rotate_x(-controller_cam_rot.y * sensi)
+		head.rotation.x = clamp(head.rotation.x ,-PI/2 ,PI/2)
 
 func hit(damage:int):
 	life-=damage

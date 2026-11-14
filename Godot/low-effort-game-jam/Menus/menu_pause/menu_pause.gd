@@ -10,6 +10,7 @@ func _process(delta: float) -> void:
 			visible = true
 			get_tree().paused = true
 			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+			%B_resume.grab_focus()
 
 
 func _on_b_resume_pressed() -> void:
