@@ -17,7 +17,7 @@ func handle_completion(posPlayer):
 	
 	#création d'une nouvelle livraison
 	
-	var newZoneLivraison
+	var newZoneLivraison = null
 	while newZoneLivraison == null or zoneLivraison == newZoneLivraison:
 		newZoneLivraison = Game.listeZone.pick_random()
 	zoneLivraison = newZoneLivraison

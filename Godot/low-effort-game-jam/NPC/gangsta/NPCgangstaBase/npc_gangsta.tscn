@@ -12,9 +12,9 @@ radius = 20.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_54y4j"]
 
 [node name="NPCgangsta" type="CharacterBody3D" unique_id=396984565]
+collision_layer = 260
+collision_mask = 261
 script = ExtResource("1_8ugwr")
-state = null
-life = null
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=777787518]
 shape = SubResource("CapsuleShape3D_i0ia3")
@@ -25,6 +25,8 @@ mesh = SubResource("CapsuleMesh_x83us")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=350273222]
 
 [node name="AreaDetection" type="Area3D" parent="." unique_id=1379889255]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDetection" unique_id=1337799808]
 shape = SubResource("SphereShape3D_54y4j")
@@ -47,3 +49,21 @@ autostart = true
 [node name="TimerNav" type="Timer" parent="." unique_id=1065212063]
 wait_time = 0.2
 one_shot = true
+
+[node name="RayList" type="Node3D" parent="." unique_id=1479752950]
+
+[node name="RayCast3D" type="RayCast3D" parent="RayList" unique_id=1296725273]
+target_position = Vector3(0, 0, -2)
+collision_mask = 4
+
+[node name="RayCast3D2" type="RayCast3D" parent="RayList" unique_id=1597685768]
+target_position = Vector3(-1, 0, -1.5)
+collision_mask = 4
+
+[node name="RayCast3D3" type="RayCast3D" parent="RayList" unique_id=2115729936]
+target_position = Vector3(1, 0, -1.5)
+collision_mask = 4
+
+[connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
+[connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]
+[connection signal="timeout" from="TimerTarget" to="." method="_on_timer_target_timeout"]

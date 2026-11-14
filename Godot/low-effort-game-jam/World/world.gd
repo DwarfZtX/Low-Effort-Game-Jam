@@ -5,4 +5,4 @@ extends Node3D
 func _ready() -> void:
 	#Dialogic.start("StartDialogue")
 	await get_tree().create_timer(0.1).timeout
-	SignalBus.delivery_completed.emit($Player.global_position)
+	SignalBus.delivery_completed.emit($NavMap/Player.global_position)

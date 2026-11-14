@@ -29,7 +29,7 @@ var bullet = preload("res://Misc/projectiles/projectile.tscn")
 
 @export var exhaustion = 0
 
-@export var colis 
+@export var colis: String
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("interact"):
 			match rayInteract.get_collider().interactState:
 				"GetColis":
-					if colis == null:
+					if colis == "":
 						colis = rayInteract.get_collider().getTheColis()
 						change_colis()
 				"GetFood":
@@ -163,13 +163,13 @@ func hit(damage:int):
 func change_colis():
 	for mesh in handPackage.get_children():
 		mesh.hide()
-	if colis != null:
+	if colis != "":
 		handPackage.find_child('Mesh'+colis).show()
 
 
 
 func post_colis():
 	if colis:
-		colis = null
+		colis = ""
 		change_colis()
 		SignalBus.delivery_completed.emit(global_position)
