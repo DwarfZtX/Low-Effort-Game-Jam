@@ -3,7 +3,18 @@
 [ext_resource type="Script" uid="uid://dnsx33srqia4i" path="res://Player/player.gd" id="1_l8h54"]
 [ext_resource type="Script" uid="uid://cl0k6m0h7ro7b" path="res://Player/head.gd" id="2_4ntmi"]
 [ext_resource type="AudioStream" uid="uid://ch0qe6hgll1mm" path="res://Ressources/SFX/Player/course.wav" id="3_btcbx"]
+[ext_resource type="Shader" uid="uid://crwsjrhn6ag7s" path="res://Ressources/texture/Shader/playerChroma.gdshader" id="3_k53q1"]
 [ext_resource type="AudioStream" uid="uid://dmdy2c6reke70" path="res://Ressources/SFX/Weapon/piou.wav" id="4_gwnis"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fhl08"]
+render_priority = -1
+shader = ExtResource("3_k53q1")
+shader_parameter/aberration_strength = 0.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_1e4x2"]
+material = SubResource("ShaderMaterial_fhl08")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4ntmi"]
 size = Vector3(0.2, 0.5, 0.8)
@@ -28,6 +39,12 @@ script = ExtResource("2_4ntmi")
 
 [node name="Camera3D" type="Camera3D" parent="head/headAnchor" unique_id=1952656911]
 current = true
+
+[node name="meshChroma" type="MeshInstance3D" parent="head/headAnchor/Camera3D" unique_id=254676858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.38168415)
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_1e4x2")
 
 [node name="RayInteract" type="RayCast3D" parent="head/headAnchor" unique_id=1340616648]
 target_position = Vector3(0, 0, -2)

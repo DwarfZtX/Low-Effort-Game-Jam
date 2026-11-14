@@ -14,6 +14,7 @@ const JOYSTICK_DEADZONE = 0.2
 @onready var handWeapon = $head/headAnchor/HandWeapon
 @onready var DashTimer = $dashTimer
 @onready var DashLimiter = $dashLimiter
+@onready var ChromaMesh = $head/headAnchor/Camera3D/meshChroma
 
 var speed
 var gravity = 10
@@ -82,6 +83,7 @@ func _physics_process(delta: float) -> void:
 		
 		instance.degat = 50
 		get_parent().add_child(instance)
+		head.apply_recoil(5)
 		$Node/AudioShoot.pitch_scale = randf_range(0.95,1.05)
 		$Node/AudioShoot.play()
 	
@@ -134,6 +136,14 @@ func _physics_process(delta: float) -> void:
 	head.cam_tilt(input_dir.x,delta)
 	
 	$head/headAnchor/Camera3D.fov = lerp($head/headAnchor/Camera3D.fov,75+(velocity.length()/2),0.1)
+	
+	var tempo 
+	if DashTimer.is_stopped():
+		tempo = lerp(ChromaMesh.mesh.material.get_shader_parameter('aberration_strength'),0.0,0.1)
+	else:
+		tempo = lerp(ChromaMesh.mesh.material.get_shader_parameter('aberration_strength'),velocity.length()/1000,0.1)
+	ChromaMesh.mesh.material.set_shader_parameter('aberration_strength', tempo)
+	
 
 	var controller_cam_rot : Vector2 = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
 	if controller_cam_rot.length() > JOYSTICK_DEADZONE:
