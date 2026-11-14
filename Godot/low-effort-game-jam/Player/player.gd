@@ -10,7 +10,8 @@ const SENSI_SCOPE_DIVIDER = 5
 @onready var rayInteract = $head/headAnchor/RayInteract
 @onready var handPackage = $head/headAnchor/HandPackage
 @onready var handWeapon = $head/headAnchor/HandWeapon
-
+@onready var DashTimer = $dashTimer
+@onready var DashLimiter = $dashLimiter
 
 var speed
 var gravity = 10
@@ -23,6 +24,8 @@ var bullet = preload("res://Misc/projectiles/projectile.tscn")
 # variable de gestion de la vie
 @export var life = 200
 @export var max_life = 200
+
+@export var exhaustion = 0
 
 var colis 
 
@@ -85,8 +88,14 @@ func _physics_process(delta: float) -> void:
 		
 		instance.degat = 50
 		get_parent().add_child(instance)
+		$Node/AudioShoot.pitch_scale = randf_range(0.95,1.05)
+		$Node/AudioShoot.play()
 	
 	
+	if Input.is_action_just_pressed("click droit") and DashLimiter.is_stopped():
+		DashTimer.start()
+		if !Game.unlimitedDash:
+			DashLimiter.start()
 	
 	## deplacement
 	
@@ -95,6 +104,8 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if Input.is_action_pressed("sprint"):
+		if !$Node/AudioCourse.playing:
+			$Node/AudioCourse.play()
 		speed = SPRINT
 	else :
 		speed = SPEED
@@ -106,6 +117,8 @@ func _physics_process(delta: float) -> void:
 	
 	var input_dir = Input.get_vector("gauche", "droite", "haut", "bas")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if !DashTimer.is_stopped():
+		direction *=5
 	if is_on_floor():
 		if direction:
 			velocity.x = direction.x * speed
@@ -114,6 +127,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x /= 1.2
 			velocity.z /= 1.2
 	else :
+		if direction and !DashTimer.is_stopped():
+			velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
 		if direction :
 			velocity.x = lerp(velocity.x,direction.x * speed,delta * 2.0)
 			velocity.z = lerp(velocity.z,direction.z * speed,delta * 2.0)

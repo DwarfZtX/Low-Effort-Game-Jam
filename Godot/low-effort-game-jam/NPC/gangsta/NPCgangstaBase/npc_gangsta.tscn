@@ -1,13 +1,47 @@
 [gd_scene format=3 uid="uid://brknpntwtdgsh"]
 
+[ext_resource type="Script" uid="uid://u2u8iapx0tq5" path="res://NPC/gangsta/NPCgangstaBase/npc_gangsta.gd" id="1_8ugwr"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i0ia3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x83us"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_54y4j"]
+radius = 20.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54y4j"]
+
 [node name="NPCgangsta" type="CharacterBody3D" unique_id=396984565]
+script = ExtResource("1_8ugwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=777787518]
 shape = SubResource("CapsuleShape3D_i0ia3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=4192354]
 mesh = SubResource("CapsuleMesh_x83us")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=350273222]
+
+[node name="AreaDetection" type="Area3D" parent="." unique_id=1379889255]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDetection" unique_id=1337799808]
+shape = SubResource("SphereShape3D_54y4j")
+
+[node name="AreaAtt" type="Area3D" parent="." unique_id=1644281616]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaAtt" unique_id=567622069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+shape = SubResource("BoxShape3D_54y4j")
+
+[node name="TimerAtt" type="Timer" parent="." unique_id=817805553]
+one_shot = true
+
+[node name="TimerTarget" type="Timer" parent="." unique_id=625582630]
+wait_time = 0.5
+autostart = true
+
+[node name="TimerNav" type="Timer" parent="." unique_id=1065212063]
+wait_time = 0.2
+one_shot = true

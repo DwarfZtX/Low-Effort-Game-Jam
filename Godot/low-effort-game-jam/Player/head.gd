@@ -33,6 +33,7 @@ func cam_tilt(input_x,delta):
 func head_bob(vel:float,delta):
 	if headAnchor:
 		if vel >0.5 and get_parent().is_on_floor():
+			vel = clamp(vel,0.5,15)
 			var bob_amount = 0.02 * vel
 			var bob_freq = 0.01
 			headAnchorPositionBob.y = lerp(headAnchorPositionBob.y, headAnchorDefaultPos.y + sin(Time.get_ticks_msec() * bob_freq) * bob_amount , 10*delta)
@@ -44,7 +45,7 @@ func head_bob(vel:float,delta):
 
 
 func camera_shake():
-	var shake_power = 0.2
+	var shake_power = 0.5
 	var tw = get_tree().create_tween()
 	tw.tween_property(camera_node,"position",Vector3(randf()*shake_power,randf()*shake_power,randf()*shake_power),0.05)
 	tw.tween_property(camera_node,"position",Vector3(randf()*shake_power,randf()*shake_power,randf()*shake_power),0.05)

@@ -20,6 +20,9 @@ extends Node
 @export_enum("package","delivery","waiting","free") var stateGame : String
 
 
+@export var unlimitedDash = false
+
 
 func reset_game_var():
 	CrouskiDollars = 50
+	unlimitedDash = true
