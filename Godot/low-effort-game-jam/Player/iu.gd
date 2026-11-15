@@ -7,7 +7,11 @@ func _ready() -> void:
 	SignalBus.changeInLife.connect(changeLifeBar)
 
 func _process(delta: float) -> void:
-	$dollarsLabel.text = str(Game.CrouskiDollars)+" Crouskidollars"
+	$dollarsPanel/MarginContainer/dollarsLabel.text = str(Game.CrouskiDollars)+" Crouskidollars"
+	if Game.CrouskiDollars<0:
+		$dollarsPanel/AnimationPlayer.play("danger_dollars")
+	else:
+		$dollarsPanel/AnimationPlayer.play("RESET")
 
 
 

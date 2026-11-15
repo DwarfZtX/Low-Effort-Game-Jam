@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SPEED = 4.0
 const SPRINT = 15.0
-const JUMP_VELOCITY = 6.5*3
+const JUMP_VELOCITY = 6.5*2
 const SENSI = 0.002
 const SENSI_SCOPE_DIVIDER = 5
 const SENSI_CONTROLLER_FACTOR = 23
@@ -15,6 +15,7 @@ const JOYSTICK_DEADZONE = 0.2
 @onready var DashTimer = $dashTimer
 @onready var DashLimiter = $dashLimiter
 @onready var ChromaMesh = $head/headAnchor/Camera3D/meshChroma
+@onready var EDTimer = $EDTimer
 
 var speed
 var gravity = 10
@@ -31,8 +32,15 @@ var bullet = preload("res://Misc/projectiles/projectile.tscn")
 
 @export var colis: String
 
+
+
+
+
+
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 
 func _unhandled_input(event):
 	#rotation joueur et camera
@@ -44,6 +52,7 @@ func _unhandled_input(event):
 		head.rotate_x(-event.relative.y * sensi)
 		head.rotation.x = clamp(head.rotation.x ,-PI/2 ,PI/2)
 		mouse_input = event.relative
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -57,6 +66,12 @@ func _physics_process(delta: float) -> void:
 				pass
 			"GetFood":
 				SignalBus.interactLabelShow.emit("[E] Get Food (32 C$)")
+			"GetEnergyDrink":
+				SignalBus.interactLabelShow.emit("[E] Get Energy Drink (120 C$)")
+			"GetAmmo":
+				SignalBus.interactLabelShow.emit("[E] Get Ammo Box (150 C$)")
+			"GetWeapon":
+				SignalBus.interactLabelShow.emit("[E] Get "+rayInteract.get_collider().weaponSell+" ("+str(Game.weaponData[rayInteract.get_collider().weaponSell]["price"])+" C$)")
 		
 		
 		if Input.is_action_just_pressed("interact"):
@@ -68,7 +83,12 @@ func _physics_process(delta: float) -> void:
 				"GetFood":
 					Game.CrouskiDollars-=32
 					life+=50
+					if life > max_life:
+						life = max_life
 					SignalBus.changeInLife.emit(life,max_life)
+				"GetEnergyDrink":
+					Game.CrouskiDollars-=120
+					EDTimer.start()
 	else :
 		SignalBus.interactLabelShow.emit("")
 	
@@ -88,11 +108,13 @@ func _physics_process(delta: float) -> void:
 		$Node/AudioShoot.play()
 	
 	
-	if Input.is_action_just_pressed("click droit") and DashLimiter.is_stopped():
+	if Input.is_action_just_pressed("click droit"):
+		if !DashLimiter.is_stopped():
+			hit(DashLimiter.time_left*5)
 		DashTimer.start()
 		if !Game.unlimitedDash:
 			DashLimiter.start()
-
+	
 	## deplacement
 	
 	if not is_on_floor():
@@ -113,8 +135,11 @@ func _physics_process(delta: float) -> void:
 	
 	var input_dir = Input.get_vector("gauche", "droite", "haut", "bas")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if !DashTimer.is_stopped():
 		direction *=5
+	if !EDTimer.is_stopped():
+		direction*=2
 	if is_on_floor():
 		if direction:
 			velocity.x = direction.x * speed
@@ -152,6 +177,7 @@ func _physics_process(delta: float) -> void:
 		head.rotate_x(-controller_cam_rot.y * sensi)
 		head.rotation.x = clamp(head.rotation.x ,-PI/2 ,PI/2)
 
+
 func hit(damage:int):
 	life-=damage
 	SignalBus.changeInLife.emit(life,max_life)
@@ -165,7 +191,6 @@ func change_colis():
 		mesh.hide()
 	if colis != "":
 		handPackage.find_child('Mesh'+colis).show()
-
 
 
 func post_colis():

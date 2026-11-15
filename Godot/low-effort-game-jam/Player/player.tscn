@@ -16,6 +16,9 @@ material = SubResource("ShaderMaterial_fhl08")
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_54y4j"]
+size = Vector3(2, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_4ntmi"]
 size = Vector3(0.2, 0.5, 0.8)
 
@@ -49,6 +52,15 @@ mesh = SubResource("QuadMesh_1e4x2")
 [node name="RayInteract" type="RayCast3D" parent="head/headAnchor" unique_id=1340616648]
 target_position = Vector3(0, 0, -2)
 collision_mask = 512
+
+[node name="AreaDamage" type="Area3D" parent="head/headAnchor" unique_id=1900982780]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="head/headAnchor/AreaDamage" unique_id=237338528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31338942, -1.1694556)
+shape = SubResource("BoxShape3D_54y4j")
 
 [node name="HandPackage" type="Node3D" parent="head/headAnchor" unique_id=703879548]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, 0)
@@ -94,4 +106,8 @@ one_shot = true
 
 [node name="dashLimiter" type="Timer" parent="." unique_id=1512338826]
 wait_time = 2.0
+one_shot = true
+
+[node name="EDTimer" type="Timer" parent="." unique_id=1936440035]
+wait_time = 15.0
 one_shot = true
