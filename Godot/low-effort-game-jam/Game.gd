@@ -5,6 +5,9 @@ extends Node
 		SignalBus.changeValueDollars.emit(value)
 		CrouskiDollars = value
 
+
+@export var Ammo : int = 0
+
 ## TODO ajouter la pos des zone de livraisons
 #@export var listeZone = {
 	#"Banlieux":[

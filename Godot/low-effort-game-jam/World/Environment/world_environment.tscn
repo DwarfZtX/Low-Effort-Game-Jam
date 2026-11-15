@@ -1,0 +1,415 @@
+[gd_scene format=3 uid="uid://c2qm451o7gby8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j2m8w"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_73d7e"]
+sky_material = SubResource("ProceduralSkyMaterial_j2m8w")
+
+[sub_resource type="Environment" id="Environment_audap"]
+background_mode = 2
+sky = SubResource("Sky_73d7e")
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_cgk1y"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sun/DirectionalLight3D:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.5707964, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:environment:sky:sky_material:sky_top_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.385, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:environment:sky:sky_material:sky_top_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.454, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:environment:sky:sky_material:sky_top_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.55, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:environment:sky:sky_material:sky_top_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sun/DirectionalLight3D:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:environment:sky:sky_material:sky_horizon_color:r")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.66224277, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:environment:sky:sky_material:sky_horizon_color:g")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.6717428, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:environment:sky:sky_material:sky_horizon_color:b")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.6867428, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:environment:sky:sky_material:sky_horizon_color:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("sun/DirectionalLight3D:light_color:r")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("sun/DirectionalLight3D:light_color:g")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("sun/DirectionalLight3D:light_color:b")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:environment:sky:sky_material:ground_horizon_color:r")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.66224277, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath(".:environment:sky:sky_material:ground_horizon_color:g")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.6717428, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath(".:environment:sky:sky_material:ground_horizon_color:b")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.6867428, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath(".:environment:sky:sky_material:ground_horizon_color:a")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_vpbg8"]
+resource_name = "day"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sun/DirectionalLight3D:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(-1.5707964, -0.25, 0, 0.25, 0, 4.712389, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 60)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:environment:sky:sky_material:sky_top_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 2, 2),
+"points": PackedFloat32Array(0.385, -0.25, 0, 0.25, 0, 0.385, -0.25, 0, 0.25, 0, 0.086882435, -0.25, 0, 0.25, 0, 0.086882435, -0.25, 0, 0.25, 0, 0.385, -0.25, 0, 0.25, 0, 0.385, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 18, 42, 48, 60)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:environment:sky:sky_material:sky_top_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 2, 2),
+"points": PackedFloat32Array(0.454, -0.25, 0, 0.25, 0, 0.454, -0.25, 0, 0.25, 0, 0.11336536, -0.25, 0, 0.25, 0, 0.11336536, -0.25, 0, 0.25, 0, 0.454, -0.25, 0, 0.25, 0, 0.454, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 18, 42, 48, 60)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:environment:sky:sky_material:sky_top_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 2, 2),
+"points": PackedFloat32Array(0.55, -0.25, 0, 0.25, 0, 0.55, -0.25, 0, 0.25, 0, 0.14947501, -0.25, 0, 0.25, 0, 0.14947501, -0.25, 0, 0.25, 0, 0.55, -0.25, 0, 0.25, 0, 0.55, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 18, 42, 48, 60)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:environment:sky:sky_material:sky_top_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 0, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 18, 42, 48, 60)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sun/DirectionalLight3D:light_energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(2, 0, 2, 2, 0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.99999994, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 15, 18, 42, 45, 60)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:environment:sky:sky_material:sky_horizon_color:r")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 0, 2, 2),
+"points": PackedFloat32Array(0.66224277, -0.25, 0, 0.25, 0, 0.66224277, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.16231915, -0.25, 0, 0.25, 0, 0.16078432, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.66224277, -0.25, 0, 0.25, 0, 0.66224277, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 18, 42, 45, 48, 60)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:environment:sky:sky_material:sky_horizon_color:g")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 0, 2, 2),
+"points": PackedFloat32Array(0.6717428, -0.25, 0, 0.25, 0, 0.6717428, -0.25, 0, 0.25, 0, 0.54509807, -0.25, 0, 0.25, 0, 0.20448318, -0.25, 0, 0.25, 0, 0.20392157, -0.25, 0, 0.25, 0, 0.54509807, -0.25, 0, 0.25, 0, 0.6717428, -0.25, 0, 0.25, 0, 0.6717428, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 18, 42, 45, 48, 60)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:environment:sky:sky_material:sky_horizon_color:b")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 0, 2, 2),
+"points": PackedFloat32Array(0.6867428, -0.25, 0, 0.25, 0, 0.6867428, -0.25, 0, 0.25, 0, 0.36078432, -0.25, 0, 0.25, 0, 0.26538688, -0.25, 0, 0.25, 0, 0.26666668, -0.25, 0, 0.25, 0, 0.36078432, -0.25, 0, 0.25, 0, 0.6867428, -0.25, 0, 0.25, 0, 0.6867428, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 18, 42, 45, 48, 60)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:environment:sky:sky_material:sky_horizon_color:a")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 0, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 18, 42, 45, 48, 60)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("sun/DirectionalLight3D:light_color:r")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.5, 0, 5, 0, 1, -5, 0, 0.5, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 45, 48, 60)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("sun/DirectionalLight3D:light_color:g")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.7176471, -0.5, 0.0042780745, 5, -0.042780746, 0.7176471, -5, -0.1033868, 0.5, 0.01033868, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 45, 48, 60)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("sun/DirectionalLight3D:light_color:b")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.6313726, -0.5, 0.005585264, 5, -0.05585264, 0.6313726, -5, -0.09922758, 0.5, 0.009922758, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 45, 48, 60)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:environment:sky:sky_material:ground_horizon_color:r")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.66224277, -0.25, 0, 0.25, 0, 0.66224277, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.16078432, -0.25, 0, 0.25, 0, 0.16078432, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.66224277, -0.25, 0, 0.25, 0, 0.66224277, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 18, 42, 45, 48, 60)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath(".:environment:sky:sky_material:ground_horizon_color:g")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.6717428, -0.25, 0, 0.25, 0, 0.6717428, -0.25, 0, 0.25, 0, 0.54509807, -0.25, 0, 0.25, 0, 0.20392157, -0.25, 0, 0.25, 0, 0.20392157, -0.25, 0, 0.25, 0, 0.54509807, -0.25, 0, 0.25, 0, 0.6717428, -0.25, 0, 0.25, 0, 0.6717428, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 18, 42, 45, 48, 60)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath(".:environment:sky:sky_material:ground_horizon_color:b")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(0.6867428, -0.25, 0, 0.25, 0, 0.6867428, -0.25, 0, 0.25, 0, 0.36078432, -0.25, 0, 0.25, 0, 0.26666668, -0.25, 0, 0.25, 0, 0.26666668, -0.25, 0, 0.25, 0, 0.36078432, -0.25, 0, 0.25, 0, 0.6867428, -0.25, 0, 0.25, 0, 0.6867428, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 18, 42, 45, 48, 60)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath(".:environment:sky:sky_material:ground_horizon_color:a")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2, 2, 2, 2, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 12, 15, 18, 42, 45, 48, 60)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k7uyk"]
+_data = {
+&"RESET": SubResource("Animation_cgk1y"),
+&"day": SubResource("Animation_vpbg8")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" unique_id=1626779257]
+environment = SubResource("Environment_audap")
+
+[node name="sun" type="Node3D" parent="." unique_id=1901995964]
+transform = Transform3D(0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="sun" unique_id=1552237675]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=663086252]
+libraries/ = SubResource("AnimationLibrary_k7uyk")
+autoplay = &"day"
