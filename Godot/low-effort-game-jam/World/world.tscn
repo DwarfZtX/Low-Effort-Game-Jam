@@ -77,7 +77,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.20524, 0, -150)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.020435, 0, -77)
 
 [node name="batiment_2" parent="NavMap/Environment/batiments" unique_id=1681584346 instance=ExtResource("7_lo5ox")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -309.66602, 0, -13.69664)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -309.66602, 0, -13.69664)
 
 [node name="voitures" type="Node3D" parent="NavMap/Environment" unique_id=815135335]
 

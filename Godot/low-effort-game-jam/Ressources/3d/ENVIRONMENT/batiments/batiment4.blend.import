@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://br4riadkff6p3"
-path="res://.godot/imported/batiment4.blend-268d2da760ce58abc849953e4eb29796.scn"
+valid=false
 
 [deps]
 
 source_file="res://Ressources/3d/ENVIRONMENT/batiments/batiment4.blend"
-dest_files=["res://.godot/imported/batiment4.blend-268d2da760ce58abc849953e4eb29796.scn"]
 
 [params]
 

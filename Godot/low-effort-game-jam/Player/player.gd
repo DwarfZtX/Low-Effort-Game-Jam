@@ -170,7 +170,7 @@ func _physics_process(delta: float) -> void:
 	if DashTimer.is_stopped():
 		tempo = lerp(ChromaMesh.mesh.material.get_shader_parameter('aberration_strength'),0.0,0.1)
 	else:
-		tempo = lerp(ChromaMesh.mesh.material.get_shader_parameter('aberration_strength'),velocity.length()/1000,0.1)
+		tempo = lerp(ChromaMesh.mesh.material.get_shader_parameter('aberration_strength'),velocity.length()/800,0.1)
 	ChromaMesh.mesh.material.set_shader_parameter('aberration_strength', tempo)
 	
 
@@ -205,5 +205,6 @@ func post_colis():
 
 
 func change_weapon():
+	# cacher toutes les armes
 	# changer le mesh de l'arme
 	Game.weaponPlayer

@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://bcu20nxmj6b00"]
 
+[ext_resource type="Script" uid="uid://cgymv3qv46pk7" path="res://NPC/resident/NPCresidentbase/npc_resident.gd" id="1_7u3eh"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vtgx0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x83us"]
 
 [node name="NPCresident" type="CharacterBody3D" unique_id=5729806]
+script = ExtResource("1_7u3eh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1088661992]
 mesh = SubResource("CapsuleMesh_vtgx0")
