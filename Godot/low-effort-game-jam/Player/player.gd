@@ -89,23 +89,27 @@ func _physics_process(delta: float) -> void:
 				"GetEnergyDrink":
 					Game.CrouskiDollars-=120
 					EDTimer.start()
+				"GetWeapon":
+					Game.weaponPlayer = rayInteract.get_collider().weaponSell
 	else :
 		SignalBus.interactLabelShow.emit("")
 	
 	
 	## shoot
 	if Input.is_action_just_pressed("click gauche"):
-		instance = bullet.instantiate()
-		instance.position = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_position
-		instance.transform.basis = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_transform.basis
-		
-		instance.transform.basis *= Basis(Vector3(1,0,0), deg_to_rad(randf_range(-5,5))) * Basis(Vector3(0,1,0), deg_to_rad(randf_range(-5,5)))
-		
-		instance.degat = 50
-		get_parent().add_child(instance)
-		head.apply_recoil(5)
-		$Node/AudioShoot.pitch_scale = randf_range(0.95,1.05)
-		$Node/AudioShoot.play()
+		if Game.weaponData[Game.weaponPlayer]["projectile"]:
+			instance = bullet.instantiate()
+			instance.position = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_position
+			instance.transform.basis = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_transform.basis
+			
+			var disp = Game.weaponData[Game.weaponPlayer]["dispertion"]
+			instance.transform.basis *= Basis(Vector3(1,0,0), deg_to_rad(randf_range(-disp,disp))) * Basis(Vector3(0,1,0), deg_to_rad(randf_range(-disp,disp)))
+			
+			instance.degat = Game.weaponData[Game.weaponPlayer]["damage"]
+			get_parent().add_child(instance)
+			head.apply_recoil(Game.weaponData[Game.weaponPlayer]["recoil"])
+			$Node/AudioShoot.pitch_scale = randf_range(0.95,1.05)
+			$Node/AudioShoot.play()
 	
 	
 	if Input.is_action_just_pressed("click droit"):
@@ -198,3 +202,8 @@ func post_colis():
 		colis = ""
 		change_colis()
 		SignalBus.delivery_completed.emit(global_position)
+
+
+func change_weapon():
+	# changer le mesh de l'arme
+	Game.weaponPlayer

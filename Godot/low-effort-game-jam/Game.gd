@@ -7,7 +7,7 @@ extends Node
 
 
 @export var Ammo : int = 0
-@export_enum("hand","PeterTurbo 4/20","Roubot 500","Vulkan Salamander","Jagatana") var weaponPlayer : String = "hand"
+@export_enum("hand","PeterTurbo 4/20","Roubot 500","Vulkan Salamander","Jagatana") var weaponPlayer : String = "Roubot 500"
 @export var weaponData = {
 	"hand":{
 		"price":0,
