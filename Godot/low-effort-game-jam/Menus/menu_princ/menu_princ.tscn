@@ -39,6 +39,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="B_Play" type="Button" parent="BPrinc/PanelContainer/MarginContainer/VBoxContainer" unique_id=659637381]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Play"

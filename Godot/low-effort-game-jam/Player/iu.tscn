@@ -1,6 +1,114 @@
 [gd_scene format=3 uid="uid://dc41x4xxid023"]
 
 [ext_resource type="Script" uid="uid://dyeh8g6t0o4yv" path="res://Player/iu.gd" id="1_nfgyx"]
+[ext_resource type="Texture2D" uid="uid://58uax5ylmb8f" path="res://Ressources/texture/marker/crossair.svg" id="2_etyks"]
+[ext_resource type="FontFile" uid="uid://324vmpv7iw7w" path="res://Ressources/Font/spaceport_2006/Spaceport_2006.otf" id="3_sr1ds"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etyks"]
+bg_color = Color(0.17641908, 0.17641911, 0.17641899, 1)
+skew = Vector2(0.395, 0)
+
+[sub_resource type="Animation" id="Animation_sr1ds"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.17641908, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_styles/panel:bg_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.17641911, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_styles/panel:bg_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.17641899, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:theme_override_styles/panel:bg_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_etyks"]
+resource_name = "danger_dollars"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.17641908, -0.25, 0, 0.25, 0, 1, -0.083333336, -0.13726349, 0, 0),
+"times": PackedFloat32Array(-0.008333334, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_styles/panel:bg_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.17641911, -0.25, 0, 0.25, 0, 0.1764706, -0.083333336, -8.580586e-06, 0, 0),
+"times": PackedFloat32Array(-0.008333334, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_styles/panel:bg_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0.17641899, -0.25, 0, 0.25, 0, 0.1764706, -0.083333336, -8.600454e-06, 0, 0),
+"times": PackedFloat32Array(-0.008333334, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:theme_override_styles/panel:bg_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.083333336, 0, 0, 0),
+"times": PackedFloat32Array(-0.008333334, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sr1ds"]
+_data = {
+&"RESET": SubResource("Animation_sr1ds"),
+&"danger_dollars": SubResource("Animation_etyks")
+}
 
 [node name="IU" type="Control" unique_id=1924080377]
 layout_mode = 3
@@ -19,18 +127,66 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -0.6500244
+offset_top = 17.704987
+offset_right = 63.349976
+offset_bottom = 40.704987
 grow_horizontal = 2
 grow_vertical = 2
 text = "test test"
-horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="dollarsLabel" type="Label" parent="." unique_id=680404665]
+[node name="lifebar" type="ProgressBar" parent="." unique_id=1327967750]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -68.0
+offset_right = 150.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+show_percentage = false
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1306723375]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 500.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+pivot_offset = Vector2(500, 500)
+texture = ExtResource("2_etyks")
+stretch_mode = 3
+
+[node name="dollarsPanel" type="PanelContainer" parent="." unique_id=1402888781]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "0 Crouskidollars "
+offset_left = 30.0
+offset_top = 20.0
+offset_right = 183.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_etyks")
+
+[node name="MarginContainer" type="MarginContainer" parent="dollarsPanel" unique_id=2088204958]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
+
+[node name="dollarsLabel" type="Label" parent="dollarsPanel/MarginContainer" unique_id=680404665]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sr1ds")
+text = "0 Crouskidollars"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dollarsPanel" unique_id=188317646]
+libraries/ = SubResource("AnimationLibrary_sr1ds")

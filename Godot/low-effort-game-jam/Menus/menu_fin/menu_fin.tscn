@@ -1,9 +1,60 @@
 [gd_scene format=3 uid="uid://bgmm1ycy3krwx"]
 
+[ext_resource type="Script" uid="uid://dngp0jha8ufcw" path="res://Menus/menu_fin/menu_fin.gd" id="1_87itd"]
+[ext_resource type="FontFile" uid="uid://324vmpv7iw7w" path="res://Ressources/Font/spaceport_2006/Spaceport_2006.otf" id="2_dfq52"]
+
 [node name="menu_fin" type="Control" unique_id=1899880654]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_87itd")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1916172023]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1748458832]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=165742141]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=343210053]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dfq52")
+theme_override_font_sizes/font_size = 32
+text = "You lose"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=18628236]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_dfq52")
+bbcode_enabled = true
+text = "asfsafsafsaf
+
+"
+
+[node name="B_menu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=772608704]
+layout_mode = 2
+text = "To Menu"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/B_menu" to="." method="_on_b_menu_pressed"]
