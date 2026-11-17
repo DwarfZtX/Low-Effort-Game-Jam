@@ -42,7 +42,7 @@ func _process(delta):
 			rayhit.get_collider().hit(degat)
 	
 	# si collision
-	if ray.is_colliding():
+	if ray.is_colliding() or rayhit.is_colliding():
 		#si bounce déja fait ou qui ne passe pas
 		if (randi_range(1,bounceChance)!=1 or ifNotBounce) or bounce != false:
 			destroy = true

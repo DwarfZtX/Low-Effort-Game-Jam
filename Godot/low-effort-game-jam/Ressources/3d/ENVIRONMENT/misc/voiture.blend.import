@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b6iq50ut2mhw3"
-valid=false
+path="res://.godot/imported/voiture.blend-28122e4c0a2841fc297fef0b394ae739.scn"
 
 [deps]
 
 source_file="res://Ressources/3d/ENVIRONMENT/misc/voiture.blend"
+dest_files=["res://.godot/imported/voiture.blend-28122e4c0a2841fc297fef0b394ae739.scn"]
 
 [params]
 

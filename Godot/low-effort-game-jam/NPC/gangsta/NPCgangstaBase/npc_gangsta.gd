@@ -53,13 +53,14 @@ func _physics_process(delta):
 	
 	match state:
 		"idle":
-			
+			$p2/AnimationPlayer.play("idle")
 			#velocity = Vector3.ZERO
 			velocity = velocity/1.2
 		"falling":
+			$p2/AnimationPlayer.play("T_pose")
 			velocity += get_gravity() * delta
 		"walking":
-			
+			$p2/AnimationPlayer.play("marche")
 			# TODO ajouter une esquive de se qu'il y a devant
 			
 			# réduit le nbr d'appel a get_next_path_position() qui est extensif sur de grande période et quantité
@@ -85,8 +86,9 @@ func _physics_process(delta):
 			var direction = (Vector3(target.global_position.x,global_position.y,target.global_position.z) - global_position).normalized()
 			global_transform.basis = global_transform.basis.slerp(Basis.looking_at(direction, Vector3.UP), TURN_SPEED * delta)
 			if $TimerAtt.is_stopped():
-				attack()
+				
 				$TimerAtt.start()
+				$p2/AnimationPlayer.play("attack")
 			
 	move_and_slide()
 

@@ -29,6 +29,9 @@ size = Vector3(0.1, 0.1, 0.3)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hvfyp"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_54y4j"]
+radius = 8.0
+
 [node name="Player" type="CharacterBody3D" unique_id=225424705]
 collision_layer = 258
 collision_mask = 259
@@ -90,6 +93,13 @@ shape = SubResource("CapsuleShape3D_hvfyp")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1746589675]
 visible = false
 mesh = SubResource("CapsuleMesh_hvfyp")
+
+[node name="AreaNPC" type="Area3D" parent="." unique_id=1138262197]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaNPC" unique_id=770041428]
+shape = SubResource("SphereShape3D_54y4j")
 
 [node name="Node" type="Node" parent="." unique_id=1655608169]
 

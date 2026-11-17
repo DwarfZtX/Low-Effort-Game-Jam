@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dkh6wx266rmno"
-valid=false
+path="res://.godot/imported/Vulkan.blend-2423ef9aab75e77b3ec11cd0fdb2fc5d.scn"
 
 [deps]
 
 source_file="res://Ressources/3d/ENVIRONMENT/misc/weapon/Vulkan.blend"
+dest_files=["res://.godot/imported/Vulkan.blend-2423ef9aab75e77b3ec11cd0fdb2fc5d.scn"]
 
 [params]
 

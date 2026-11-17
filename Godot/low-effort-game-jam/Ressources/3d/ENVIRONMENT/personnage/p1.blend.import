@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bpghsugjcqwly"
-valid=false
+path="res://.godot/imported/p1.blend-f7e014baeebbe1b2b1ea0488e30fdc71.scn"
 
 [deps]
 
 source_file="res://Ressources/3d/ENVIRONMENT/personnage/p1.blend"
+dest_files=["res://.godot/imported/p1.blend-f7e014baeebbe1b2b1ea0488e30fdc71.scn"]
 
 [params]
 

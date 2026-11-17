@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cahnhbvku57lk"
-valid=false
+path="res://.godot/imported/PeterTurbo.blend-db11a80880118c09e31a987392b078ff.scn"
 
 [deps]
 
 source_file="res://Ressources/3d/ENVIRONMENT/misc/weapon/PeterTurbo.blend"
+dest_files=["res://.godot/imported/PeterTurbo.blend-db11a80880118c09e31a987392b078ff.scn"]
 
 [params]
 

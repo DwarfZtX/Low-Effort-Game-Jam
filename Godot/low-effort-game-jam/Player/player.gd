@@ -97,6 +97,8 @@ func _physics_process(delta: float) -> void:
 	
 	## shoot
 	if Input.is_action_just_pressed("click gauche"):
+		for npc in $AreaNPC.get_overlapping_bodies():
+			npc.fear()
 		if Game.weaponData[Game.weaponPlayer]["projectile"]:
 			instance = bullet.instantiate()
 			instance.position = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_position
@@ -118,6 +120,12 @@ func _physics_process(delta: float) -> void:
 		DashTimer.start()
 		if !Game.unlimitedDash:
 			DashLimiter.start()
+	
+	
+	if Input.is_action_pressed("beatbox"):
+		for npc in $AreaNPC.get_overlapping_bodies():
+			npc.dance()
+	
 	
 	## deplacement
 	
