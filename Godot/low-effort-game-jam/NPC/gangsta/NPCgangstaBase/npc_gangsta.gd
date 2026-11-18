@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @onready var nav_agent = $NavigationAgent3D
 
-
+@export var trigger = false
 var default
 
 var targets_list = []
@@ -24,22 +24,22 @@ var PROXIMITY_RANGE = 1
 var ATTACK_RANGE = 2
 var DAMAGE = 30
 
-@export var life = 80
+@export var life = 150
 
 
 
 func _physics_process(delta):
 	
-	
+	if global_position.distance_squared_to(Game.player.global_position) > 3600: return
 	
 	# remise a zéro de la cible 
 	target = false
 	# si a portée d'attaque on attaque
-	if actual_target != null and global_position.distance_to(actual_target.global_position) <= ATTACK_RANGE: 
+	if actual_target != null and global_position.distance_to(actual_target.global_position) <= ATTACK_RANGE and trigger: 
 		state = "attacking"
 		target = actual_target
 	# sinon si a porté d'engagement max on bouge vers la cible
-	elif actual_target != null and global_position.distance_to(actual_target.global_position) <= 20: 
+	elif actual_target != null and global_position.distance_to(actual_target.global_position) <= 20 and trigger: 
 		state = "walking"
 		target = actual_target
 	# sinon, on ne bouge pas
@@ -103,6 +103,7 @@ func attack():
 
 
 func hit(degat):
+	trigger = true
 	life-= degat
 	if life<= 0:
 		queue_free()

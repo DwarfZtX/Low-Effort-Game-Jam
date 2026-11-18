@@ -186,7 +186,7 @@ theme_override_constants/margin_right = 12
 [node name="dollarsLabel" type="Label" parent="dollarsPanel/MarginContainer" unique_id=680404665]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_sr1ds")
-text = "0 Crouskidollars"
+text = "50 Crouskidollars"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="dollarsPanel" unique_id=188317646]
 libraries/ = SubResource("AnimationLibrary_sr1ds")
@@ -210,3 +210,15 @@ theme_override_constants/margin_right = 12
 [node name="Label" type="Label" parent="policePanel/MarginContainer" unique_id=2031719106]
 layout_mode = 2
 text = "Researched by the police"
+
+[node name="packagePanel" type="PanelContainer" parent="." unique_id=1115167054]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="weaponPanel" type="PanelContainer" parent="." unique_id=1559419731]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

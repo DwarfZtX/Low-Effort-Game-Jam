@@ -10,6 +10,7 @@ func _ready():
 	danceAnim = ["dance1","dance2","dance3"].pick_random()
 
 func _physics_process(delta: float) -> void:
+	if global_position.distance_squared_to(Game.player.global_position) > 3600: return
 	if !is_on_floor():
 		velocity += get_gravity() * delta
 	match state:
@@ -36,7 +37,7 @@ func fear():
 
 func hit(degat):
 	life-= degat
-	print(life)
+	#print(life)
 	if life<= 0:
 		queue_free()
 	if state != "scared":

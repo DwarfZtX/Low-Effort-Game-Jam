@@ -2,46 +2,58 @@ extends Node
 
 @export var CrouskiDollars : int = 50 :
 	set(value):
-		SignalBus.changeValueDollars.emit(value)
 		CrouskiDollars = value
+		SignalBus.changeValueDollars.emit()
+
+@export var player = null
 
 
 @export var Ammo : int = 0
-@export_enum("hand","PeterTurbo 4/20","Roubot 500","Vulkan Salamander","Jagatana") var weaponPlayer : String = "Roubot 500"
+@export_enum("hand","PeterTurbo 4/20","Roubot 500","Vulkan Salamander","Jagatana") var weaponPlayer : String = "hand"
 @export var weaponData = {
 	"hand":{
 		"price":0,
 		"damage":25,
-		"projectile":false
+		"projectile":false,
+		"attackAnim":"punch_r",
+		"mesh":null
 	},
 	"PeterTurbo 4/20":{ # pistolet gros calibre
 		"price":450,
 		"damage":120,
 		"projectile":true,
 		"recoil":15,
-		"dispertion":2,
-		"magazine":1
+		"dispertion":1,
+		"magazine":1,
+		"attackAnim":"shot-r",
+		"mesh":"peterturbo"
 	},
 	"Roubot 500":{ # pistolet basique
 		"price":300,
 		"damage":40,
 		"projectile":true,
 		"recoil":7,
-		"dispertion":2,
-		"magazine":8
+		"dispertion":1,
+		"magazine":8,
+		"attackAnim":"shot-r",
+		"mesh":"roubot"
 	},
 	"Vulkan Salamander":{ # pistolet mitrailleur
 		"price":375,
 		"damage":15,
 		"projectile":true,
 		"recoil":3,
-		"dispertion":3,
-		"magazine":20
+		"dispertion":2,
+		"magazine":20,
+		"attackAnim":"fastshot-r",
+		"mesh":"vulkan"
 	},
 	"Jagatana":{ # Katana
 		"price":1000,
 		"damage":50,
-		"projectile":false
+		"projectile":false,
+		"attackAnim":"slash_r",
+		"mesh":"jagatana"
 	}
 }
 
@@ -97,3 +109,5 @@ func reset_game_var():
 	residentKill = 0
 	copKill = 0
 	gangKill = 0
+	
+	player = null

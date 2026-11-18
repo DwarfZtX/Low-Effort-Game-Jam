@@ -5,13 +5,16 @@ extends Control
 func _ready() -> void:
 	SignalBus.interactLabelShow.connect(InteractLabelshow)
 	SignalBus.changeInLife.connect(changeLifeBar)
+	SignalBus.changeValueDollars.connect(changeDollars)
 
 func _process(delta: float) -> void:
-	$dollarsPanel/MarginContainer/dollarsLabel.text = str(Game.CrouskiDollars)+" Crouskidollars"
 	if Game.CrouskiDollars<0:
 		$dollarsPanel/AnimationPlayer.play("danger_dollars")
 	else:
 		$dollarsPanel/AnimationPlayer.play("RESET")
+
+func changeDollars():
+	$dollarsPanel/MarginContainer/dollarsLabel.text = str(Game.CrouskiDollars)+" Crouskidollars"
 
 
 

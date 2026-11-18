@@ -39,6 +39,7 @@ var bullet = preload("res://Misc/projectiles/projectile.tscn")
 
 
 func _ready():
+	Game.player = self
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
@@ -80,6 +81,7 @@ func _physics_process(delta: float) -> void:
 					if colis == "":
 						colis = rayInteract.get_collider().getTheColis()
 						change_colis()
+						$head/headAnchor/BRASPACKAGE/AnimationPlayer.play("take-l")
 				"GetFood":
 					Game.CrouskiDollars-=32
 					life+=50
@@ -91,18 +93,21 @@ func _physics_process(delta: float) -> void:
 					EDTimer.start()
 				"GetWeapon":
 					Game.weaponPlayer = rayInteract.get_collider().weaponSell
+					Game.CrouskiDollars-=Game.weaponData[Game.weaponPlayer]["price"]
+					change_weapon()
+					$head/headAnchor/BRASWEAPON/AnimationPlayer.play("recharge-r")
 	else :
 		SignalBus.interactLabelShow.emit("")
 	
 	
 	## shoot
-	if Input.is_action_just_pressed("click gauche"):
+	if Input.is_action_pressed("click gauche") and !$head/headAnchor/BRASWEAPON/AnimationPlayer.is_playing():
 		for npc in $AreaNPC.get_overlapping_bodies():
 			npc.fear()
 		if Game.weaponData[Game.weaponPlayer]["projectile"]:
 			instance = bullet.instantiate()
-			instance.position = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_position
-			instance.transform.basis = $head/headAnchor/HandWeapon/MeshPistol/MarkerProj.global_transform.basis
+			instance.position = $head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D/BoneAttachment3D/MarkerProj.global_position
+			instance.transform.basis = $head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D/BoneAttachment3D/MarkerProj.global_transform.basis
 			
 			var disp = Game.weaponData[Game.weaponPlayer]["dispertion"]
 			instance.transform.basis *= Basis(Vector3(1,0,0), deg_to_rad(randf_range(-disp,disp))) * Basis(Vector3(0,1,0), deg_to_rad(randf_range(-disp,disp)))
@@ -112,6 +117,12 @@ func _physics_process(delta: float) -> void:
 			head.apply_recoil(Game.weaponData[Game.weaponPlayer]["recoil"])
 			$Node/AudioShoot.pitch_scale = randf_range(0.95,1.05)
 			$Node/AudioShoot.play()
+			$head/headAnchor/BRASWEAPON/AnimationPlayer.play(Game.weaponData[Game.weaponPlayer]["attackAnim"])
+		else:
+			for body in $head/headAnchor/AreaDamage.get_overlapping_bodies():
+				if body != self:
+					body.hit(Game.weaponData[Game.weaponPlayer]["damage"])
+			$head/headAnchor/BRASWEAPON/AnimationPlayer.play(Game.weaponData[Game.weaponPlayer]["attackAnim"])
 	
 	
 	if Input.is_action_just_pressed("click droit"):
@@ -199,10 +210,12 @@ func hit(damage:int):
 
 
 func change_colis():
-	for mesh in handPackage.get_children():
-		mesh.hide()
+	#for mesh in handPackage.get_children():
+	#	mesh.hide()
+	$head/headAnchor/BRASPACKAGE/handPackage/Skeleton3D/package.hide()
 	if colis != "":
-		handPackage.find_child('Mesh'+colis).show()
+		$head/headAnchor/BRASPACKAGE/handPackage/Skeleton3D/package.show()
+		#handPackage.find_child('Mesh'+colis).show()
 
 
 func post_colis():
@@ -215,4 +228,9 @@ func post_colis():
 func change_weapon():
 	# cacher toutes les armes
 	# changer le mesh de l'arme
-	Game.weaponPlayer
+	$head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D/jagatana.hide()
+	$head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D/roubot.hide()
+	$head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D/vulkan.hide()
+	$head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D/peterturbo.hide()
+	if Game.weaponPlayer != "hand":
+		$head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D.find_child(Game.weaponData[Game.weaponPlayer]["mesh"]).show()

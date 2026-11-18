@@ -181,3 +181,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 1, -17)
 [node name="WeaponDispenser" parent="." unique_id=244327590 instance=ExtResource("4_nxx6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1, -11)
 weaponSell = "PeterTurbo 4/20"
+
+[node name="WeaponDispenser2" parent="." unique_id=342748546 instance=ExtResource("4_nxx6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.574593, 1, -11)
+weaponSell = "Roubot 500"
+
+[node name="WeaponDispenser3" parent="." unique_id=1069863662 instance=ExtResource("4_nxx6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.833402, 1, -11)
+weaponSell = "Vulkan Salamander"
+
+[node name="WeaponDispenser4" parent="." unique_id=1423293937 instance=ExtResource("4_nxx6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.947171, 1, -11)
+weaponSell = "Jagatana"

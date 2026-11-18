@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://5yyh65ajduya"]
+
+[ext_resource type="Script" uid="uid://dkbu6d7uow82u" path="res://NPC/gangsta/SpawnerGangsta/spawner_gangsta.gd" id="1_384eo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pxqqd"]
+size = Vector3(20, 50, 20)
+
+[node name="spawnerGangsta" type="Node3D" unique_id=1156427147]
+script = ExtResource("1_384eo")
+
+[node name="AreaGang" type="Area3D" parent="." unique_id=584882788]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaGang" unique_id=1817297119]
+shape = SubResource("BoxShape3D_pxqqd")
+
+[node name="GangstaList" type="Node3D" parent="." unique_id=312063644]
+
+[node name="Timer" type="Timer" parent="." unique_id=253749048]
+wait_time = 10.0
+autostart = true
+
+[node name="mesh" type="Node3D" parent="." unique_id=574390645]
+
+[connection signal="body_entered" from="AreaGang" to="." method="_on_area_gang_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
