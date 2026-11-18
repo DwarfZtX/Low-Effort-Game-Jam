@@ -105,6 +105,10 @@ folder_colors={
 "res://addons/": "gray"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 ui_accept={

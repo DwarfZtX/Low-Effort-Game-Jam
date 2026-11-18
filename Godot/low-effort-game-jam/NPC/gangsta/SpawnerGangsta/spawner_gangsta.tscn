@@ -5,6 +5,13 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_pxqqd"]
 size = Vector3(20, 50, 20)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_x83us"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 1.0
+radial_segments = 8
+rings = 1
+
 [node name="spawnerGangsta" type="Node3D" unique_id=1156427147]
 script = ExtResource("1_384eo")
 
@@ -22,6 +29,9 @@ wait_time = 10.0
 autostart = true
 
 [node name="mesh" type="Node3D" parent="." unique_id=574390645]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="mesh" unique_id=1361946863]
+mesh = SubResource("CylinderMesh_x83us")
 
 [connection signal="body_entered" from="AreaGang" to="." method="_on_area_gang_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

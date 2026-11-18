@@ -30,7 +30,7 @@ var DAMAGE = 30
 
 func _physics_process(delta):
 	
-	if global_position.distance_squared_to(Game.player.global_position) > 3600: return
+	if global_position.distance_squared_to(Game.player.global_position) > 10000: return
 	
 	# remise a zéro de la cible 
 	target = false
@@ -39,7 +39,7 @@ func _physics_process(delta):
 		state = "attacking"
 		target = actual_target
 	# sinon si a porté d'engagement max on bouge vers la cible
-	elif actual_target != null and global_position.distance_to(actual_target.global_position) <= 20 and trigger: 
+	elif actual_target != null and global_position.distance_to(actual_target.global_position) <= 30 and trigger: 
 		state = "walking"
 		target = actual_target
 	# sinon, on ne bouge pas

@@ -44,6 +44,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Play"
 
+[node name="B_Tuto" type="Button" parent="BPrinc/PanelContainer/MarginContainer/VBoxContainer" unique_id=1502563459]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Tutorial"
+
 [node name="B_Credit" type="Button" parent="BPrinc/PanelContainer/MarginContainer/VBoxContainer" unique_id=970504520]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -55,5 +60,6 @@ theme_override_font_sizes/font_size = 24
 text = "Quit"
 
 [connection signal="pressed" from="BPrinc/PanelContainer/MarginContainer/VBoxContainer/B_Play" to="." method="_on_b_play_pressed"]
+[connection signal="pressed" from="BPrinc/PanelContainer/MarginContainer/VBoxContainer/B_Tuto" to="." method="_on_b_tuto_pressed"]
 [connection signal="pressed" from="BPrinc/PanelContainer/MarginContainer/VBoxContainer/B_Credit" to="." method="_on_b_credit_pressed"]
 [connection signal="pressed" from="BPrinc/PanelContainer/MarginContainer/VBoxContainer/B_Quit" to="." method="_on_b_quit_pressed"]

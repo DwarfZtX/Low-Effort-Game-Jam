@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dcmlq2f8sa6tv" path="res://World/Batiments/batiment_2.tscn" id="7_lo5ox"]
 [ext_resource type="PackedScene" uid="uid://clg7ejgdb8oun" path="res://Misc/deliveryManager/delivery_manager.tscn" id="7_yf0ba"]
 [ext_resource type="PackedScene" uid="uid://bcu20nxmj6b00" path="res://NPC/resident/NPCresidentbase/npc_resident.tscn" id="10_0wqet"]
+[ext_resource type="PackedScene" uid="uid://5yyh65ajduya" path="res://NPC/gangsta/SpawnerGangsta/spawner_gangsta.tscn" id="11_awrha"]
+[ext_resource type="PackedScene" uid="uid://d0tneot2db31" path="res://NPC/cops/NPCcopsBase/npc_cop.tscn" id="12_f23eu"]
 [ext_resource type="PackedScene" uid="uid://bgmm1ycy3krwx" path="res://Menus/menu_fin/menu_fin.tscn" id="12_h2aik"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_yf0ba"]
@@ -108,6 +110,12 @@ transform = Transform3D(-0.4501222, 0, -0.892967, 0, 1, 0, 0.892967, 0, -0.45012
 
 [node name="NPCresident3" parent="NavMap" unique_id=331133187 instance=ExtResource("10_0wqet")]
 transform = Transform3D(-0.8050385, 0, 0.5932226, 0, 1, 0, -0.5932226, 0, -0.8050385, 2.1800656, 1.057344, -23.334845)
+
+[node name="spawnerGangsta" parent="NavMap" unique_id=1156427147 instance=ExtResource("11_awrha")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.76955, 0.42092037, -53.868546)
+
+[node name="NPCcop" parent="NavMap" unique_id=133503861 instance=ExtResource("12_f23eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.538961, 3.7930956, 0)
 
 [node name="IU" parent="." unique_id=1924080377 instance=ExtResource("2_j8job")]
 

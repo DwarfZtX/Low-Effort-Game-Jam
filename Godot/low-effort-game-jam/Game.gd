@@ -26,27 +26,30 @@ extends Node
 		"dispertion":1,
 		"magazine":1,
 		"attackAnim":"shot-r",
-		"mesh":"peterturbo"
+		"mesh":"peterturbo",
+		"speedAnim":1,
 	},
 	"Roubot 500":{ # pistolet basique
 		"price":300,
-		"damage":40,
+		"damage":70,
 		"projectile":true,
 		"recoil":7,
 		"dispertion":1,
 		"magazine":8,
 		"attackAnim":"shot-r",
-		"mesh":"roubot"
+		"mesh":"roubot",
+		"speedAnim":2,
 	},
 	"Vulkan Salamander":{ # pistolet mitrailleur
 		"price":375,
-		"damage":15,
+		"damage":25,
 		"projectile":true,
 		"recoil":3,
 		"dispertion":2,
 		"magazine":20,
 		"attackAnim":"fastshot-r",
-		"mesh":"vulkan"
+		"mesh":"vulkan",
+		"speedAnim":3,
 	},
 	"Jagatana":{ # Katana
 		"price":1000,

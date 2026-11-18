@@ -16,3 +16,8 @@ func _on_b_credit_pressed() -> void:
 
 func _on_b_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_b_tuto_pressed() -> void:
+	Global.scene_to_load = "res://World/world_tuto.tscn"
+	get_tree().change_scene_to_file("res://Menus/menu_chargement/menu_chargement.tscn")

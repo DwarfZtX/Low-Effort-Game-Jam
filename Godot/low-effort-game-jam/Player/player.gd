@@ -27,6 +27,7 @@ var bullet = preload("res://Misc/projectiles/projectile.tscn")
 # variable de gestion de la vie
 @export var life = 200
 @export var max_life = 200
+@export var life_buffer = 0
 
 @export var exhaustion = 0
 
@@ -117,7 +118,7 @@ func _physics_process(delta: float) -> void:
 			head.apply_recoil(Game.weaponData[Game.weaponPlayer]["recoil"])
 			$Node/AudioShoot.pitch_scale = randf_range(0.95,1.05)
 			$Node/AudioShoot.play()
-			$head/headAnchor/BRASWEAPON/AnimationPlayer.play(Game.weaponData[Game.weaponPlayer]["attackAnim"])
+			$head/headAnchor/BRASWEAPON/AnimationPlayer.play(Game.weaponData[Game.weaponPlayer]["attackAnim"],-1,Game.weaponData[Game.weaponPlayer]["speedAnim"])
 		else:
 			for body in $head/headAnchor/AreaDamage.get_overlapping_bodies():
 				if body != self:
