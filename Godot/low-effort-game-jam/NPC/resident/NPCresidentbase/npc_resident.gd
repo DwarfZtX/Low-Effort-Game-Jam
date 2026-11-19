@@ -40,6 +40,7 @@ func hit(degat):
 	life-= degat
 	#print(life)
 	if life<= 0:
+		Game.residentKill+=1
 		queue_free()
 	if state != "scared":
 		state = "scared"

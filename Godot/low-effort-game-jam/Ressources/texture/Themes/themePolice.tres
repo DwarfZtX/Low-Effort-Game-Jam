@@ -1,0 +1,30 @@
+[gd_resource type="Theme" format=3 uid="uid://df3jml7anvpw6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2xgu"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+skew = Vector2(0.395, 0)
+shadow_color = Color(1, 1, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7mt4"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+skew = Vector2(0.395, 0)
+shadow_color = Color(1, 0.49803922, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(5, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bmu5"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+skew = Vector2(0.395, 0)
+shadow_color = Color(1, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(5, 10)
+
+[resource]
+test/base_type = &"PanelContainer"
+test/styles/panel = SubResource("StyleBoxFlat_q2xgu")
+test2/base_type = &"PanelContainer"
+test2/styles/panel = SubResource("StyleBoxFlat_n7mt4")
+test3/base_type = &"PanelContainer"
+test3/styles/panel = SubResource("StyleBoxFlat_2bmu5")

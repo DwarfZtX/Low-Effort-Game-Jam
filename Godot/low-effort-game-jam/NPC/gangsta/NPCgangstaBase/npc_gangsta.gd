@@ -17,10 +17,10 @@ var gravity = 10
 @export_enum("idle","falling","walking","attacking") var state : String
 
 
-const SPEED = 5.0
-const TURN_SPEED = 1.8
+const SPEED = 8.0
+const TURN_SPEED = 2.0
 
-var PROXIMITY_RANGE = 1
+var PROXIMITY_RANGE = 1.5
 var ATTACK_RANGE = 2
 var DAMAGE = 30
 
@@ -60,7 +60,7 @@ func _physics_process(delta):
 			$p2/AnimationPlayer.play("T_pose")
 			velocity += get_gravity() * delta
 		"walking":
-			$p2/AnimationPlayer.play("marche")
+			$p2/AnimationPlayer.play("marche",-1,2)
 			# TODO ajouter une esquive de se qu'il y a devant
 			
 			# réduit le nbr d'appel a get_next_path_position() qui est extensif sur de grande période et quantité
@@ -88,7 +88,7 @@ func _physics_process(delta):
 			if $TimerAtt.is_stopped():
 				
 				$TimerAtt.start()
-				$p2/AnimationPlayer.play("attack")
+				$p2/AnimationPlayer.play("attack",-1,2)
 			
 	move_and_slide()
 
@@ -106,6 +106,7 @@ func hit(degat):
 	trigger = true
 	life-= degat
 	if life<= 0:
+		Game.gangKill+=1
 		queue_free()
 
 

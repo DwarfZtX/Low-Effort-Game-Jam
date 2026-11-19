@@ -15,3 +15,5 @@ signal delivery_completed(posPlayer:Vector3)
 
 signal game_death()
 signal game_free()
+
+signal police_trigger()

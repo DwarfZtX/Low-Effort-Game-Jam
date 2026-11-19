@@ -10,7 +10,7 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	if $GangstaList.get_child_count() < 3:
+	if $GangstaList.get_child_count() < 5:
 		instance = gangsta.instantiate()
 		instance.position = Vector3(randi_range(-5,5),2,randi_range(-5,5))
 		instance.rotation.y = randi() * 2 * PI

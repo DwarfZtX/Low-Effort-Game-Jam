@@ -88,11 +88,23 @@ extends Node
 
 
 # stat
-@export var gangKill = 0
-@export var copKill = 0
-@export var residentKill = 0
+@export var gangKill = 0:
+	set(value):
+		gangKill = value
+		SignalBus.police_trigger.emit()
+@export var copKill = 0:
+	set(value):
+		copKill = value
+		SignalBus.police_trigger.emit()
+@export var residentKill = 0:
+	set(value):
+		residentKill=value
+		SignalBus.police_trigger.emit()
 
-@export var carExploded = 0
+@export var carExploded = 0:
+	set(value):
+		carExploded=value
+		SignalBus.police_trigger.emit()
 @export var packageDelivered = 0
 
 
@@ -114,3 +126,4 @@ func reset_game_var():
 	gangKill = 0
 	
 	player = null
+	weaponPlayer = "hand"

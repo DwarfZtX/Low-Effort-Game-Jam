@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dyeh8g6t0o4yv" path="res://Player/iu.gd" id="1_nfgyx"]
 [ext_resource type="Texture2D" uid="uid://58uax5ylmb8f" path="res://Ressources/texture/marker/crossair.svg" id="2_etyks"]
 [ext_resource type="FontFile" uid="uid://324vmpv7iw7w" path="res://Ressources/Font/spaceport_2006/Spaceport_2006.otf" id="3_sr1ds"]
+[ext_resource type="Theme" uid="uid://df3jml7anvpw6" path="res://Ressources/texture/Themes/themePolice.tres" id="4_islsh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etyks"]
 bg_color = Color(0.17641908, 0.17641911, 0.17641899, 1)
@@ -197,10 +198,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_left = -108.5
+offset_top = 20.0
+offset_right = 108.5
+offset_bottom = 60.0
 grow_horizontal = 2
+theme = ExtResource("4_islsh")
 
 [node name="MarginContainer" type="MarginContainer" parent="policePanel" unique_id=172696070]
 layout_mode = 2
@@ -209,7 +212,9 @@ theme_override_constants/margin_right = 12
 
 [node name="Label" type="Label" parent="policePanel/MarginContainer" unique_id=2031719106]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sr1ds")
 text = "Researched by the police"
+horizontal_alignment = 1
 
 [node name="packagePanel" type="PanelContainer" parent="." unique_id=1115167054]
 visible = false

@@ -10,6 +10,7 @@ func hit(damage):
 	if life<= 0: return
 	life-=damage
 	if life<=0:
+		Game.carExploded+=1
 		for body in $AreaDamage.get_overlapping_bodies():
 			if body != self:
 				body.hit(20)

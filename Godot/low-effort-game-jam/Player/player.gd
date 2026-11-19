@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SPEED = 4.0
 const SPRINT = 15.0
-const JUMP_VELOCITY = 6.5*2
+const JUMP_VELOCITY = 10
 const SENSI = 0.002
 const SENSI_SCOPE_DIVIDER = 5
 const SENSI_CONTROLLER_FACTOR = 23

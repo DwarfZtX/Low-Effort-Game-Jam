@@ -1183,7 +1183,7 @@ _data = {
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_x83us"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_54y4j"]
-radius = 20.0
+radius = 40.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_54y4j"]
 

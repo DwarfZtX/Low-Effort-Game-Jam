@@ -118,6 +118,7 @@ func hit(degat):
 	trigger = true
 	life-= degat
 	if life<= 0:
+		Game.copKill+=1
 		queue_free()
 
 
