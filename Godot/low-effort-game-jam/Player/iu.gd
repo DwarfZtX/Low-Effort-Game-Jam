@@ -38,7 +38,7 @@ func changepoliceAffichage():
 		$policePanel.show()
 		if value <= 3:
 			if $policePanel.theme_type_variation != "test":
-				var shake_power = 10
+				var shake_power = 20
 				var tw = get_tree().create_tween()
 				tw.tween_property($policePanel,"position",Vector2(438.5+randf()*shake_power,20+randf()*shake_power),0.05)
 				tw.tween_property($policePanel,"position",Vector2(438.5+randf()*shake_power,20+randf()*shake_power),0.05)
@@ -48,7 +48,7 @@ func changepoliceAffichage():
 			$policePanel.theme_type_variation = "test"
 		elif value <= 4:
 			if $policePanel.theme_type_variation != "test2":
-				var shake_power = 10
+				var shake_power = 20
 				var tw = get_tree().create_tween()
 				tw.tween_property($policePanel,"position",Vector2(438.5+randf()*shake_power,20+randf()*shake_power),0.05)
 				tw.tween_property($policePanel,"position",Vector2(438.5+randf()*shake_power,20+randf()*shake_power),0.05)
@@ -58,7 +58,7 @@ func changepoliceAffichage():
 			$policePanel.theme_type_variation = "test2"
 		else :
 			if $policePanel.theme_type_variation != "test3":
-				var shake_power = 10
+				var shake_power = 20
 				var tw = get_tree().create_tween()
 				tw.tween_property($policePanel,"position",Vector2(438.5+randf()*shake_power,20+randf()*shake_power),0.05)
 				tw.tween_property($policePanel,"position",Vector2(438.5+randf()*shake_power,20+randf()*shake_power),0.05)

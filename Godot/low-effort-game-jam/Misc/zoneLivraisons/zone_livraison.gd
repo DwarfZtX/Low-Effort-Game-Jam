@@ -22,5 +22,5 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.post_colis()
 		changeZoneActivation(false)
 		Game.packageDelivered+=1
-		Game.CrouskiDollars+= randi_range(50,100)
+		Game.CrouskiDollars+= randi_range(100,250)
 	
