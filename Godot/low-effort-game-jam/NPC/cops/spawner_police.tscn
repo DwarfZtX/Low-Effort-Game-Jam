@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://dob6f3nny75hl"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x83us"]
+size = Vector3(30, 50, 30)
+
 [node name="spawner_police" type="Node3D" unique_id=410049560]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=897385121]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=65001705]
+shape = SubResource("BoxShape3D_x83us")
+
+[node name="mesh" type="Node3D" parent="." unique_id=649415424]
