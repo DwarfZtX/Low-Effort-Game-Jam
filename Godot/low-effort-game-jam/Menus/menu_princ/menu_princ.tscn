@@ -80,7 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_b2aq4")
 theme_override_font_sizes/font_size = 48
-text = "DeliVery Dangerous"
+text = "Deli-Very Dangerous"
 horizontal_alignment = 1
 
 [node name="LabelSousTitre" type="Label" parent="." unique_id=1103637565]
