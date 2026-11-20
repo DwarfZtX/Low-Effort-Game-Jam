@@ -233,5 +233,6 @@ func change_weapon():
 	$head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D/roubot.hide()
 	$head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D/vulkan.hide()
 	$head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D/peterturbo.hide()
+	SignalBus.changeWeapon.emit()
 	if Game.weaponPlayer != "hand":
 		$head/headAnchor/BRASWEAPON/handWeapon/Skeleton3D.find_child(Game.weaponData[Game.weaponPlayer]["mesh"]).show()

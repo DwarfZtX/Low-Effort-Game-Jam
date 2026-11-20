@@ -55,6 +55,7 @@ text = "asfsafsafsaf
 
 [node name="B_menu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=772608704]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dfq52")
 text = "To Menu"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/B_menu" to="." method="_on_b_menu_pressed"]

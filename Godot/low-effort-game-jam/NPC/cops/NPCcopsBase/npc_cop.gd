@@ -5,7 +5,6 @@ extends CharacterBody3D
 
 var bullet = preload("res://Misc/projectiles/projectile.tscn")
 
-@export var trigger = false
 var default
 
 var targets_list = []
@@ -24,10 +23,13 @@ const SPEED = 5.0
 const TURN_SPEED = 1.8
 
 var PROXIMITY_RANGE = 1
-var ATTACK_RANGE = 20
+var ATTACK_RANGE = 15
 var DAMAGE = 30
 
 @export var life = 150
+
+func _ready():
+	$GPUParticles3D.emitting = true
 
 
 func _physics_process(delta):
@@ -37,11 +39,11 @@ func _physics_process(delta):
 	# remise a zéro de la cible 
 	target = false
 	# si a portée d'attaque on attaque
-	if actual_target != null and global_position.distance_to(actual_target.global_position) <= ATTACK_RANGE and trigger: 
+	if actual_target != null and global_position.distance_to(actual_target.global_position) <= ATTACK_RANGE: 
 		state = "attacking"
 		target = actual_target
 	# sinon si a porté d'engagement max on bouge vers la cible
-	elif actual_target != null and global_position.distance_to(actual_target.global_position) <= 30 and trigger: 
+	elif actual_target != null and global_position.distance_to(actual_target.global_position) <= 30: 
 		state = "walking"
 		target = actual_target
 	# sinon, on ne bouge pas
@@ -102,7 +104,7 @@ func attack():
 	
 	$Marker3D.look_at(targettoattack.global_position)
 	
-	instance.position = $Marker3D.global_position
+	instance.position = $Marker3D.global_position -get_parent().get_parent().global_position
 	instance.transform.basis = $Marker3D.global_transform.basis
 	var ACCURACY = 5
 	instance.transform.basis *= Basis(Vector3(1,0,0), deg_to_rad(randf_range(-ACCURACY,ACCURACY))) * Basis(Vector3(0,1,0), deg_to_rad(randf_range(-ACCURACY,ACCURACY)))
@@ -115,7 +117,7 @@ func attack():
 
 
 func hit(degat):
-	trigger = true
+	#trigger = true
 	life-= degat
 	if life<= 0:
 		Game.copKill+=1
@@ -134,6 +136,10 @@ func _on_timer_target_timeout() -> void:
 	# Sert a redéfinir la cible actuel toutes les X secondes
 	# cherche la cible la plus proche
 	var new_actual_target = null
+	if log( Game.carExploded +Game.copKill + Game.gangKill + Game.residentKill) <= 0 : 
+		actual_target = null
+		return 
+	
 	for new_target in targets_list:
 		if new_actual_target == null or global_position.distance_to(new_actual_target.global_position)> global_position.distance_to(new_target.global_position):
 			new_actual_target = new_target

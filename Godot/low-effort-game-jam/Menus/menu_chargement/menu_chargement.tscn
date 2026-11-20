@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://boauftkf74ebu"]
 
 [ext_resource type="Script" uid="uid://bndeyskhhut83" path="res://Menus/menu_chargement/menu_chargement.gd" id="1_7d3k0"]
+[ext_resource type="FontFile" uid="uid://324vmpv7iw7w" path="res://Ressources/Font/spaceport_2006/Spaceport_2006.otf" id="2_rhjnt"]
 
 [node name="menu_chargement" type="Control" unique_id=1997032386]
 layout_mode = 3
@@ -29,6 +30,7 @@ anchor_bottom = 1.0
 offset_top = -27.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_rhjnt")
 
 [node name="Label" type="RichTextLabel" parent="." unique_id=651596607]
 layout_mode = 1
@@ -43,6 +45,10 @@ offset_right = 20.0
 offset_bottom = -75.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/normal_font = ExtResource("2_rhjnt")
+theme_override_fonts/bold_font = ExtResource("2_rhjnt")
+theme_override_fonts/bold_italics_font = ExtResource("2_rhjnt")
+theme_override_fonts/italics_font = ExtResource("2_rhjnt")
 bbcode_enabled = true
 fit_content = true
 scroll_active = false

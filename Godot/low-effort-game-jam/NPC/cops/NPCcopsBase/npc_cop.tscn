@@ -1202,6 +1202,35 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_b7kt4"]
 radius = 40.0
 
+[sub_resource type="Curve" id="Curve_wilci"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.18243244, 1), 0.0, 0.0, 0, 0, Vector2(0.4662162, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_bcdiu"]
+curve = SubResource("Curve_wilci")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1e4x2"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+damping_min = 5.0
+damping_max = 10.0
+scale_min = 0.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_bcdiu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mq281"]
+emission_enabled = true
+emission = Color(0, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_54y4j"]
+material = SubResource("StandardMaterial3D_mq281")
+radial_segments = 8
+rings = 4
+
 [node name="NPCcop" type="CharacterBody3D" unique_id=133503861]
 collision_layer = 264
 collision_mask = 265
@@ -1415,6 +1444,13 @@ collision_mask = 4
 [node name="RayCast3D3" type="RayCast3D" parent="RayList" unique_id=1691779850]
 target_position = Vector3(1, 0, -1.5)
 collision_mask = 4
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1091310175]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1e4x2")
+draw_pass_1 = SubResource("SphereMesh_54y4j")
 
 [connection signal="body_entered" from="AreaDetection" to="." method="_on_area_detection_body_entered"]
 [connection signal="body_exited" from="AreaDetection" to="." method="_on_area_detection_body_exited"]

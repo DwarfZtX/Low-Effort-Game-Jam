@@ -7,6 +7,7 @@ func _ready() -> void:
 	SignalBus.changeInLife.connect(changeLifeBar)
 	SignalBus.changeValueDollars.connect(changeDollars)
 	SignalBus.police_trigger.connect(changepoliceAffichage)
+	SignalBus.changeWeapon.connect(changeWeapon)
 
 func _process(delta: float) -> void:
 	if Game.CrouskiDollars<0:
@@ -26,6 +27,10 @@ func InteractLabelshow(newText):
 func changeLifeBar(life,max_life):
 	$lifebar.max_value = max_life
 	$lifebar.value = life
+
+func changeWeapon():
+	$weaponPanel/MarginContainer/Label.text = Game.weaponPlayer
+
 
 func changepoliceAffichage():
 	var value = log( Game.carExploded +Game.copKill + Game.gangKill + Game.residentKill)

@@ -134,7 +134,7 @@ offset_right = 63.349976
 offset_bottom = 40.704987
 grow_horizontal = 2
 grow_vertical = 2
-text = "test test"
+theme_override_fonts/font = ExtResource("3_sr1ds")
 vertical_alignment = 1
 
 [node name="lifebar" type="ProgressBar" parent="." unique_id=1327967750]
@@ -223,7 +223,25 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="weaponPanel" type="PanelContainer" parent="." unique_id=1559419731]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -70.0
+offset_right = -20.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="weaponPanel" unique_id=244712862]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="weaponPanel/MarginContainer" unique_id=1724960003]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_sr1ds")
+text = "Hand"
+horizontal_alignment = 1
